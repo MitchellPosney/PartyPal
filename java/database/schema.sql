@@ -1,9 +1,11 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS event; 
+DROP TABLE IF EXISTS event;   
+DROP TABLE IF EXISTS song_playlist;
+
+DROP TABLE IF EXISTS song;  
 DROP TABLE IF EXISTS playlist; 
-DROP TABLE IF EXISTS song; 
-DROP TABLE IF EXISTS genre; 
+ DROP TABLE IF EXISTS genre; 
 DROP TABLE IF EXISTS dj; 
 DROP TABLE IF EXISTS hosts; 
 DROP TABLE IF EXISTS users; 
@@ -46,24 +48,35 @@ CREATE TABLE genre (
         CONSTRAINT pk_genre_id PRIMARY KEY (genre_id)
       
         
-);    
+);     
+
 
 CREATE TABLE song (  
         song_id SERIAL, 
         genre_id int, 
         song_title varchar(50) NOT NULL, 
-        song_artist varchar(50) NOT NULL,
-        CONSTRAINT pk_song_id PRIMARY KEY (song_id),  
-        CONSTRAINT fk_genre_id FOREIGN KEY (genre_id) REFERENCES genre(genre_id)        
-);        
+        song_artist varchar(50) NOT NULL, 
+        CONSTRAINT pk_song_id PRIMARY KEY (song_id),    
+        CONSTRAINT fk_genre_id FOREIGN KEY (genre_id) REFERENCES genre(genre_id)     
+);    
+
 
 CREATE TABLE playlist (  
         playlist_id SERIAL, 
+        playlist_name varchar(50) NOT NULL,   
+        CONSTRAINT pk_playlist_id PRIMARY KEY (playlist_id)
+       
+            
+);       
+
+CREATE TABLE song_playlist ( 
         song_id int, 
-        playlist_name varchar(50) NOT NULL, 
-        CONSTRAINT pk_playlist_id PRIMARY KEY (playlist_id),  
-        CONSTRAINT fk_song_id FOREIGN KEY (song_id) REFERENCES song(song_id)        
-);  
+        playlist_id int,  
+        CONSTRAINT fk_song_id FOREIGN KEY (song_id) REFERENCES song(song_id),  
+        CONSTRAINT fk_playlist_id FOREIGN KEY (playlist_id) REFERENCES playlist(playlist_id)
+        
+);
+
 
 CREATE TABLE event (  
         event_id SERIAL, 
