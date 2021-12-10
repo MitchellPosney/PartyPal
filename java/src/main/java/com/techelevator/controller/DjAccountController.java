@@ -48,13 +48,13 @@ public class DjAccountController
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @RequestMapping(path = "removeSongFromPlaylist", method = RequestMethod.DELETE)
+    @RequestMapping(path = "/removeSongFromPlaylist", method = RequestMethod.DELETE)
     public void removeSongFromPlaylist(@PathVariable long songId, long playlistId) {
         dao.removeSongFromPlaylist(songId,playlistId);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @RequestMapping(path = "/DJ/availableSongs", method = RequestMethod.GET)
+    @RequestMapping(path = "/availableSongs", method = RequestMethod.GET)
     public void availableSongs() {
         dao.listAllSongs();
     }
