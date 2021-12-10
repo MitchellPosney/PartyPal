@@ -1,15 +1,21 @@
 <template>
 <div id="nav">
     <div>
-        <img src="retroplay_logo_horizontal_transp.png" class="logo">
+        <router-link v-bind:to="{ name: 'home' }"><img src="retroplay_logo_horizontal_transp.png" class="logo"></router-link>
+    </div>
+    <div class="searchbar">
+        <text area></text>
     </div>
     <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Manage Account</button>
+        <button v-on:click="myFunction()" class="dropbtn">Manage Account</button>
             <div id="myDropdown" class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-             </div>
+                <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">Login</router-link>
+                <router-link v-bind:to="{ name: 'login' }">Login</router-link>
+                <router-link v-bind:to="{ name: 'home' }">Home</router-link>
+                <router-link v-bind:to="{ name: 'register' }" v-if="$store.state.token == ''">Register</router-link>
+                <router-link v-bind:to="{ name: 'login'  }">Login</router-link>
+                <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+            </div>
     </div>
 </div>
 </template>
@@ -18,6 +24,24 @@
 <script>
 export default {
     name: "nav-bar",
+    methods: {
+        myFunction() {
+             document.getElementById("myDropdown").classList.toggle("show");
+        },
+        function(event) {
+             if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+    },
 
     data() {
         return {
@@ -29,27 +53,24 @@ export default {
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-//function myFunction() {
- // document.getElementById("myDropdown").classList.toggle("show");
-//}
 
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
+
+//Close the dropdown menu if the user clicks outside of it
+// window.onclick = function(event) {
+//   if (!event.target.matches('.dropbtn')) {
+//     var dropdowns = document.getElementsByClassName("dropdown-content");
+//     var i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       var openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains('show')) {
+//         openDropdown.classList.remove('show');
+//       }
+//     }
+//   }
+// }
 
 
 </script>
-
 
 <style>
 #nav {
@@ -70,27 +91,24 @@ window.onclick = function(event) {
     flex-basis: 0%;
 }
 
-div {
+/* div {
     border-style: solid;
-}
-
-h1 {
-    color: pink;
-}
+} */
 
 /* Dropdown Button */
 .dropbtn {
-  background-color: #3498DB;
+  background-color: #18CAE6;
   color: white;
   padding: 16px;
   font-size: 16px;
   border: none;
   cursor: pointer;
+  border-radius: 15px;
 }
 
 /* Dropdown button on hover & focus */
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
+  background-color: #61E294;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -108,20 +126,20 @@ h1 {
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px #000022;
   z-index: 1;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: black;
+  color:#000022;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd}
+.dropdown-content a:hover {background-color: #ddd;}
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
