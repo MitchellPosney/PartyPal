@@ -27,17 +27,15 @@ public class JdbcSharedDao implements SharedDao
 
     @Override
     public List<Event> getEventByName(String eventName) {
-        eventName.replaceAll("\\s", "");
-
         List<Event> eventList = new ArrayList<>();
 
-        String sql = "SELECT dj_name, host_name, event_id, event_host, event_dj, playlist_id, genre_id," +
+        String sql = "SELECT event_id, event_host, event_dj, playlist_id, genre_id," +
                 " event_name, event_date, start_time, duration_minutes, event_location " +
                 "FROM event " +
-                "INNER JOIN dj ON  event_dj = dj_id " +
-                "INNER JOIN hosts ON event_host = host_id " +
-                "WHERE event_name = ?;";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, eventName.trim());
+//                "INNER JOIN dj ON event_dj = dj_id " +
+//                "INNER JOIN hosts ON event_host = host_id dj_name, host_name," +
+                "WHERE event_name LIKE ? ;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, eventName);
         while (results.next()) {
             Event event = mapRowToEvent(results);
             eventList.add(event);
@@ -48,6 +46,7 @@ public class JdbcSharedDao implements SharedDao
     @Override
     public Event getEventPlaylist(int eventId) {
         return null;
+
     }
 
     @Override
@@ -69,6 +68,7 @@ public class JdbcSharedDao implements SharedDao
         String event = "SELECT host_name FROM host WHERE host_id = ?";
         return jdbcTemplate.queryForObject(event, String.class, hostId);
     }
+
     public List<Song> getPlaylist(long playlistId) {
         String event2 = "SELECT *, c.username AS sender_name, d.username AS receiver_name FROM song_playlist " +
                 "JOIN song_playlist AS a ON a.account_id = transfers.account_from " +
@@ -96,10 +96,10 @@ public class JdbcSharedDao implements SharedDao
     private Event mapRowToEvent(SqlRowSet results) {
         Event event = new Event();
         event.setEventId(results.getInt("event_id"));
-        event.setEventHost(results.getString("host_name"));
-        event.setEventDJ(results.getString("dj_name"));
-        event.setEventHostID(results.getInt("host_id"));
-        event.setEventHostID(results.getInt("dj_id"));
+//        event.setEventHost(results.getString("host_name"));
+//        event.setEventDJ(results.getString("dj_name"));
+        event.setEventHostID(results.getInt("event_host"));
+        event.setEventDJId(results.getInt("event_dj"));
         event.setPlaylistID(results.getInt("playlist_id"));
         event.setGenreId(results.getInt("genre_id"));
         event.setEventDate(results.getDate("event_date"));

@@ -8,6 +8,6 @@ public class EventNotFoundException extends Exception {
     private static final long serialVersionUID = 1L;
 
     public EventNotFoundException() {
-        super("Transfer Details not found.");
+        super("Event Details not found.");
     }
 }
