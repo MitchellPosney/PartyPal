@@ -10,11 +10,6 @@
     <div id="routerview">
       <router-view />
     </div>
-
-    <div id="recordbackground">
-      <img src="recordbackground.png">
-    </div>
-    
   </div>
 
 </template>
@@ -30,6 +25,7 @@ export default {
 
 body {
   background-color: #000022;
+  background-image: url("/recordbackground.png");
   color: aliceblue;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
