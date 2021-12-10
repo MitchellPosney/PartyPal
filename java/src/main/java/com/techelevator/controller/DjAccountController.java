@@ -2,17 +2,11 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.JdbcDjAccount;
 import com.techelevator.dao.UserDao;
-import com.techelevator.model.Song;
 import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
-import java.math.BigDecimal;
-import java.security.Principal;
-import java.util.List;
 
 @Controller
 @RequestMapping(path="/DJ")
@@ -55,7 +49,8 @@ public class DjAccountController
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(path = "/availableSongs", method = RequestMethod.GET)
-    public void availableSongs() {
-        dao.listAllSongs();
+    public SqlRowSet availableSongs() {
+        return dao.listAllSongs();
     }
+
 }

@@ -1,11 +1,14 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.Song;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Component
 public class JdbcDjAccount implements DjAccountDao {
@@ -52,7 +55,21 @@ public class JdbcDjAccount implements DjAccountDao {
     public SqlRowSet listAllSongs()
     {
         String availableSongs = "SELECT * FROM song";
+        List<Song> songs = new ArrayList<>();
+        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(availableSongs);
+        while (rowSet.next())
+        {
+            songs.add(mapRowToSong(rowSet));
+        }
+        return rowSet;
+    }
 
-        return jdbcTemplate.queryForRowSet(availableSongs);
+    private Song mapRowToSong(SqlRowSet rs)
+    {
+        Song song = new Song();
+        song.setGenreId(rs.getLong("genre_id"));
+        song.setSongArtist(rs.getString("song_title"));
+        song.setSongTitle(rs.getString("song_artist"));
+        return song;
     }
 }
