@@ -18,26 +18,58 @@ public class JdbcSharedDao implements SharedDao
         this.jdbcTemplate = jdbcTemplate;
     }
 
+//    @Override
+//    public LigetEventByName(String eventName) {
+//        String event = "SELECT * FROM event WHERE event_name = ?";
+//        Event[] results = jdbcTemplate.queryForRowSet(event,eventName);
+//        mapRowToEvent();
+//    }
+
     @Override
-    public void getEventByName(String eventName)
-    {
-        String event = "SELECT * FROM event WHERE event_name = ?";
-        Event[] results = jdbcTemplate.queryForRowSet(event,eventName);
-        mapRowToEvent();
+    public List<Event> getEventByName(String eventName) {
+        eventName.replaceAll("\\s", "");
+
+        List<Event> eventList = new ArrayList<>();
+
+        String sql = "SELECT dj_name, host_name, event_id, event_host, event_dj, playlist_id, genre_id," +
+                " event_name, event_date, start_time, duration_minutes, event_location " +
+                "FROM event " +
+                "INNER JOIN dj ON  event_dj = dj_id " +
+                "INNER JOIN hosts ON event_host = host_id " +
+                "WHERE event_name = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, eventName.trim());
+        while (results.next()) {
+            Event event = mapRowToEvent(results);
+            eventList.add(event);
+        }
+        return eventList;
     }
 
-    public String getDj(long djId)
-    {
+    @Override
+    public Event getEventPlaylist(int eventId) {
+        return null;
+    }
+
+    @Override
+    public Event getAvailableSongs(int genreId) {
+        return null;
+    }
+
+    @Override
+    public boolean addSongToPlaylist(int songId) {
+        return false;
+    }
+
+    public String getDj(long djId) {
         String event = "SELECT dj_name FROM dj WHERE dj_id = ?";
         return jdbcTemplate.queryForObject(event, String.class, djId);
     }
-    public String getHost(long hostId)
-    {
+
+    public String getHost(long hostId) {
         String event = "SELECT host_name FROM host WHERE host_id = ?";
         return jdbcTemplate.queryForObject(event, String.class, hostId);
     }
-    public List<Song> getPlaylist(long playlistId)
-    {
+    public List<Song> getPlaylist(long playlistId) {
         String event2 = "SELECT *, c.username AS sender_name, d.username AS receiver_name FROM song_playlist " +
                 "JOIN song_playlist AS a ON a.account_id = transfers.account_from " +
                 "JOIN accounts AS b ON b.account_id = transfers.account_to " +
@@ -57,13 +89,27 @@ public class JdbcSharedDao implements SharedDao
         return songs;
     }
 
-    private Song mapRowToSong(SqlRowSet rs)
-    {
+    private Song mapRowToSong(SqlRowSet rs) {
         return new Song(rs.getLong("genre_id"),rs.getString("song_title"),rs.getString("song_artist"));
     }
 
-    private Event mapRowToEvent(SqlRowSet rs)
-    {
-        return new Event(rs.getString("event_host"),rs.getString("event_dj"), (ArrayList<Song>) rs.getObject("event_id"),rs.getString("event_name"),rs.getDate("event_date"),rs.getTime("start_time"),rs.getInt("duration_minutes"),rs.getString("event_location"));
+    private Event mapRowToEvent(SqlRowSet results) {
+        Event event = new Event();
+        event.setEventId(results.getInt("event_id"));
+        event.setEventHost(results.getString("host_name"));
+        event.setEventDJ(results.getString("dj_name"));
+        event.setEventHostID(results.getInt("host_id"));
+        event.setEventHostID(results.getInt("dj_id"));
+        event.setPlaylistID(results.getInt("playlist_id"));
+        event.setGenreId(results.getInt("genre_id"));
+        event.setEventDate(results.getDate("event_date"));
+        event.setStartTime(results.getTime("start_time"));
+        event.setEventMinutes(results.getInt("duration_minutes"));
+        event.setEventLocation(results.getString("event_location"));
+
+
+        return event;
+
+
     }
 }

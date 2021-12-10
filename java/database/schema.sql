@@ -103,7 +103,7 @@ INSERT INTO hosts (host_id, host_name) VALUES ((SELECT user_id FROM users WHERE 
 INSERT INTO dj (dj_id, dj_name) VALUES ((SELECT user_id FROM users WHERE username = 'dj' AND role = 'ROLE_DJ'), 'Caroline'); 
 INSERT INTO genre (genre_name) VALUES ('Birthday');  
 INSERT INTO song (genre_id, song_title, song_artist) VALUES ((SELECT genre_id FROM genre WHERE genre_name = 'Birthday'), 'Happy Birthday', 'Caroilne'); 
-INSERT INTO playlist (playlist_name) VALUES ('Caroline Birthday Playlist');  
+INSERT INTO playlist (playlist_name) VALUES ('Caroline Birthday Playlist');
 INSERT INTO song_playlist(playlist_id, song_id) VALUES ((SELECT song_id FROM song WHERE song_title = 'Happy Birthday'), ((SELECT playlist_id FROM playlist WHERE playlist_name = 'Caroline Birthday Playlist')));
 INSERT INTO event (event_name) VALUES ('Caroline Birthday Party');
 
