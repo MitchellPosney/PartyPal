@@ -42,19 +42,19 @@ public class DjAccountController
     }*/
 
     @ResponseStatus(value = HttpStatus.CREATED)
-    @RequestMapping(value = "/addSongToPlaylist", method = RequestMethod.POST)
+    @RequestMapping(path = "/addSongToPlaylist", method = RequestMethod.POST)
     public void addSongToPlaylist(@PathVariable long songId, long playlistId) {
         dao.addSongToPlaylist(songId,playlistId);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @RequestMapping(value = "removeSongFromPlaylist", method = RequestMethod.DELETE)
+    @RequestMapping(path = "removeSongFromPlaylist", method = RequestMethod.DELETE)
     public void removeSongFromPlaylist(@PathVariable long songId, long playlistId) {
         dao.removeSongFromPlaylist(songId,playlistId);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @RequestMapping(value = "/DJ/availableSongs", method = RequestMethod.GET)
+    @RequestMapping(path = "/DJ/availableSongs", method = RequestMethod.GET)
     public void availableSongs() {
         dao.listAllSongs();
     }
