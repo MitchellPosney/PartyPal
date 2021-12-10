@@ -1,16 +1,10 @@
 <template>
 <div id="nav">
     <div>
-        <img src="retroplay_logo.png">
-    </div>
-    <div>
-        <h1>Retroplay</h1>
-    </div>
-    <div>
-        <h2>Music for Party People</h2>
+        <img src="retroplay_logo_horizontal_transp.png" class="logo">
     </div>
     <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+        <button onclick="myFunction()" class="dropbtn">Manage Account</button>
             <div id="myDropdown" class="dropdown-content">
                 <a href="#">Link 1</a>
                 <a href="#">Link 2</a>
@@ -63,25 +57,25 @@ window.onclick = function(event) {
     height: 100px;
     position: fixed;
     top: 0;
-    background-color: green;
+    background-color: #000022;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
     
 }
-img {
+.logo {
     height: 100px;
-    width: 100px
+    flex-basis: 0%;
+}
+
+div {
+    border-style: solid;
 }
 
 h1 {
     color: pink;
-}
-
-div {
-    border: blue;
-    border-width: 2px;
-    border-style: solid;
 }
 
 /* Dropdown Button */
@@ -101,8 +95,11 @@ div {
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
-  position: relative;
+  position: absolute;
   display: inline-block;
+  right: 0px;
+  padding: 25px;
+
 }
 
 /* Dropdown Content (Hidden by Default) */

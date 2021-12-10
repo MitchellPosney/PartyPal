@@ -1,13 +1,20 @@
 <template>
-  <div>
+  <div id="main">
     <div id="nav">
       <NavBar></NavBar>
     </div>
-    <div id="app">
+    <!-- <div id="app">
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+    </div> -->
+    <div id="routerview">
+      <router-view />
     </div>
-    <router-view />
+
+    <div id="recordbackground">
+      <img src="recordbackground.png">
+    </div>
+    
   </div>
 
 </template>
@@ -20,16 +27,30 @@ export default {
 </script>
 
 <style>
+
 body {
   background-color: #000022;
   color: aliceblue;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-div {
-  border: greenyellow;
+.app {
+  background-color: greenyellow;
 }
 
+#routerview {
+  position: absolute;
+  align-items: center;
+  top: 100px;
+  width: 98%;
+  padding-top: 35px;
 
+}
+
+#recordbackground {
+  align-items: center;
+  align-self: center;
+  bottom: 0px;
+}
 
 </style>
