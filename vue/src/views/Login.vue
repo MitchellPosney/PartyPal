@@ -12,32 +12,40 @@
         role="alert"
         v-if="this.$route.query.registration"
       >Thank you for registering, please sign in.</div>
-      <label for="username" class="sr-only">Username</label>
+      <br>
+      <label for="username" class="sr-only">Username:  </label>
       <input
         type="text"
         id="username"
-        class="form-control"
+        class="form-control userpass"
         placeholder="Username"
         v-model="user.username"
         required
         autofocus
       />
-      <label for="password" class="sr-only">Password</label>
+      <br>
+      <br>
+      <label for="password" class="sr-only">Password:  </label>
       <input
         type="password"
         id="password"
-        class="form-control"
+        class="form-control userpass"
         placeholder="Password"
         v-model="user.password"
         required
       />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
+      <br>
+      <br>
+      <button type="submit" class="loginbtn">Sign in</button>
+      <br>
+      <br>
+      <router-link :to="{ name: 'register' }"><button class="registerbtn">Need an account?</button></router-link>
     </form>
   </div>
 </template>
 
 <script>
+
 import authService from "../services/AuthService";
 
 export default {
@@ -74,3 +82,48 @@ export default {
   }
 };
 </script>
+
+<style>
+.text-center {
+  align-content: center;
+  text-align: center;
+}
+
+.loginbtn {
+  background-color: #18CAE6;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.loginbtn:hover, .loginbtn:focus {
+  background-color: #61E294;
+}
+
+.registerbtn {
+  background-color: #D741A7;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.registerbtn:hover, .registerbtn:focus {
+  background-color: #61E294;
+}
+
+.userpass {
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;
+}
+
+
+</style>
