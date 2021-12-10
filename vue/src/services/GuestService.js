@@ -6,11 +6,12 @@ export default {
 getEvent(eventID) { 
     return http.get(`/events/${eventID}`)
 },  
-getPlaylist() { 
-  return http.get('/playlist')
-},
-getSongs(playlistID) { 
-  return http.get(`/playlist/${playlistID}`)
+// getPlaylist() { 
+//   return http.get('/playlist')
+// }, 
+
+getPlaylist(eventID) {  
+  return http.get(`/playlist/${eventID}`)
 }, 
 
 addSongToPlaylist(songID, playlistID) { 

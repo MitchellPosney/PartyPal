@@ -15,6 +15,10 @@ public class Event
     int eventMinutes;
     String eventLocation;
 
+    public Event() {
+
+    }
+
     public Event(String eventHost, String eventDJ, ArrayList<Song> playlist, String eventName, Date eventDate, Time startTime, int eventMinutes, String eventLocation) {
         this.eventHost = eventHost;
         this.eventDJ = eventDJ;
