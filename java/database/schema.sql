@@ -44,7 +44,7 @@ CREATE TABLE dj (
 
 CREATE TABLE genre ( 
         genre_id SERIAL, 
-        genre_name varchar(50) NOT NULL,
+        genre_name varchar(50) NOT NULL UNIQUE,
         CONSTRAINT pk_genre_id PRIMARY KEY (genre_id)
       
         
@@ -96,13 +96,16 @@ CREATE TABLE event (
         CONSTRAINT fk_event_dj FOREIGN KEY (event_dj) REFERENCES dj(dj_id)  
 );  
 
-
-
-
-
-
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_EVENTHOST');
-INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_DJ');
+INSERT INTO users (username,password_hash,role) VALUES ('dj','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_DJ');  
+
+INSERT INTO hosts (host_id, host_name) VALUES ((SELECT user_id FROM users WHERE username = 'user' AND role = 'ROLE_EVENTHOST'), 'Caroline');  
+INSERT INTO dj (dj_id, dj_name) VALUES ((SELECT user_id FROM users WHERE username = 'dj' AND role = 'ROLE_DJ'), 'Caroline'); 
+INSERT INTO genre (genre_name) VALUES ('Birthday');  
+INSERT INTO song (genre_id, song_title, song_artist) VALUES ((SELECT genre_id FROM genre WHERE genre_name = 'Birthday'), 'Happy Birthday', 'Caroilne'); 
+INSERT INTO playlist (playlist_name) VALUES ('Caroline Birthday Playlist');  
+INSERT INTO song_playlist(playlist_id, song_id) VALUES ((SELECT song_id FROM song WHERE song_title = 'Happy Birthday'), ((SELECT playlist_id FROM playlist WHERE playlist_name = 'Caroline Birthday Playlist')));
+INSERT INTO event (event_name) VALUES ('Caroline Birthday Party');
 
 
 COMMIT TRANSACTION;
