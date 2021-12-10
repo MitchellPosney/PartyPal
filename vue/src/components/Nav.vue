@@ -9,12 +9,10 @@
     <div class="dropdown">
         <button v-on:click="myFunction()" class="dropbtn">Manage Account</button>
             <div id="myDropdown" class="dropdown-content">
-                <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">Login</router-link>
-                <router-link v-bind:to="{ name: 'login' }">Login</router-link>
+                <router-link v-bind:to="{ name: 'login' }" v-show="$store.state.token == ''" class="dropdown-contents">Login</router-link>
                 <router-link v-bind:to="{ name: 'home' }">Home</router-link>
-                <router-link v-bind:to="{ name: 'register' }" v-if="$store.state.token == ''">Register</router-link>
-                <router-link v-bind:to="{ name: 'login'  }">Login</router-link>
-                <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+                <router-link v-bind:to="{ name: 'register' }" v-show="$store.state.token == ''" class="dropdown-contents">Register</router-link>
+                <router-link v-bind:to="{ name: 'logout' }" v-show="$store.state.token != ''" class="dropdown-contents">Logout</router-link>
             </div>
     </div>
 </div>
@@ -28,18 +26,18 @@ export default {
         myFunction() {
              document.getElementById("myDropdown").classList.toggle("show");
         },
-        function(event) {
-             if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
+//         window:onclick = function(event) {
+//              if (!event.target.matches('.dropbtn')) {
+//                 var dropdowns = document.getElementsByClassName("dropdown-contents");
+//                 var i;
+//                 for (i = 0; i < dropdowns.length; i++) {
+//                 var openDropdown = dropdowns[i];
+//                 if (openDropdown.classList.contains('show')) {
+//                     openDropdown.classList.remove('show');
+//       }
+//     }
+//   }
+// }
 
     },
 
@@ -50,24 +48,6 @@ export default {
     }
 
 }
-
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-
-
-//Close the dropdown menu if the user clicks outside of it
-// window.onclick = function(event) {
-//   if (!event.target.matches('.dropbtn')) {
-//     var dropdowns = document.getElementsByClassName("dropdown-content");
-//     var i;
-//     for (i = 0; i < dropdowns.length; i++) {
-//       var openDropdown = dropdowns[i];
-//       if (openDropdown.classList.contains('show')) {
-//         openDropdown.classList.remove('show');
-//       }
-//     }
-//   }
-// }
 
 
 </script>
@@ -123,11 +103,11 @@ toggle between hiding and showing the dropdown content */
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
-  position: absolute;
+  position: fixed;
   background-color: #f1f1f1;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px #000022;
-  z-index: 1;
+  z-index: 1000;
 }
 
 /* Links inside the dropdown */
@@ -136,6 +116,7 @@ toggle between hiding and showing the dropdown content */
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  z-index: 1000;
 }
 
 /* Change color of dropdown links on hover */

@@ -35,11 +35,11 @@ body {
 }
 
 #routerview {
-  position: absolute;
   align-items: center;
   top: 100px;
   width: 98%;
   padding-top: 35px;
+  margin-top: 110px;
 
 }
 
