@@ -49,6 +49,7 @@ public class JdbcDjAccount implements DjAccountDao {
     public void createEvent(int hostId, int djId, int playlistId, String eventName, Date eventDate, Time startTime, int durationMinutes, String eventLocation)
     {
         String sql = "INSERT INTO event(event_host,event_dj,playlist_id,event_name,event_date,start_time,duration_minutes,event_location)";
+
     }
 
     @Override
