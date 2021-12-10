@@ -5,8 +5,8 @@ const http = axios.create({
 
 export default { 
 
-    createEvent(event) { 
-        return http.post('/event', event);
+createEvent(event) { 
+    return http.post('/event', event);
     },
 
 addGenre(genre) { 
@@ -24,10 +24,6 @@ addSongToGenre(songID, genreID, song) {
 deleteSongFromGenre(song) { 
 return http.put(`/deleteSongFromGenre/${song.id}`, song);
 },
-
-addSongToPlaylist(songID, playlistID, song) { 
-  return http.post(`/addSongToPlaylist/${songID}/${playlistID}`, song);
-} 
 
 
   
