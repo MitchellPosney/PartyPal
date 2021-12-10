@@ -22,7 +22,7 @@ CREATE TABLE users (
 	user_id int DEFAULT nextval('seq_user_id'::regclass) NOT NULL,
 	username varchar(50) NOT NULL UNIQUE,
 	password_hash varchar(200) NOT NULL,
-	role varchar(50) NOT NULL,
+	role varchar(50),
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 ); 
 
@@ -82,13 +82,15 @@ CREATE TABLE event (
         event_id SERIAL, 
         event_host int, 
         event_dj int,
-        playlist_id int,  
+        playlist_id int,   
+        genre_id int,
         event_name varchar(50) NOT NULL, 
         event_date date, 
         start_time time, 
         duration_minutes int CHECK (duration_minutes >= 30),  
         event_location varchar(50),
-        CONSTRAINT pk_event_id PRIMARY KEY (event_id),  
+        CONSTRAINT pk_event_id PRIMARY KEY (event_id),   
+        CONSTRAINT fk_genre_id FOREIGN KEY (genre_id) REFERENCES genre(genre_id),     
         CONSTRAINT fk_playlist_id FOREIGN KEY (playlist_id) REFERENCES playlist(playlist_id),   
         CONSTRAINT fk_event_host FOREIGN KEY (event_host) REFERENCES hosts(host_id),
         CONSTRAINT fk_event_dj FOREIGN KEY (event_dj) REFERENCES dj(dj_id)  
