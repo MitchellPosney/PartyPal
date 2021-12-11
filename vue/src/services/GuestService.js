@@ -3,19 +3,20 @@ const http = axios.create({
     baseURL: "http://localhost:3000"
   });
 export default {
-getEvent(eventID) { 
-    return http.get(`/events/${eventID}`)
+getEvent(eventName) { 
+    return http.get(`/events/${eventName}`);
 },  
-// getPlaylist() { 
-//   return http.get('/playlist')
-// }, 
 
-getPlaylist(eventID) {  
-  return http.get(`/playlist/${eventID}`)
+getAvailableSongs(genreID) { 
+  return http.get(`/availableSongs/${genreID}`);
 }, 
 
-addSongToPlaylist(songID, playlistID) { 
-  return http.post(`/addSongToPlaylist/${songID}/${playlistID}`) 
+getPlaylist(playlistID) {  
+  return http.get(`/playlist/${playlistID}`);
+},  
+
+addSongToPlaylist(songID, playlist) { 
+  return http.put(`/addSongToPlaylist/${songID}`, playlist);
 }
   
 
