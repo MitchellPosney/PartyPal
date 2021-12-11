@@ -7,4 +7,8 @@ export default {
     updateEvent(event) {
         return http.put(`/events/${event.id}`, event);
       },
+
+    get(event) {
+      return http.get(`/events/`)
+    }
 }

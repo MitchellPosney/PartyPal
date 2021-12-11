@@ -5,39 +5,53 @@
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
-      <label for="username" class="sr-only">Username</label>
+      <div>
+      <label for="username">Username:  </label>
       <input
         type="text"
         id="username"
-        class="form-control"
+        class="form-control userpass"
         placeholder="Username"
         v-model="user.username"
         required
         autofocus
       />
-      <label for="password" class="sr-only">Password</label>
+      <br>
+      <br>
+      <label for="password">Password:  </label>
       <input
         type="password"
         id="password"
-        class="form-control"
+        class="form-control userpass"
         placeholder="Password"
         v-model="user.password"
         required
       />
+      <br>
+      <br>
+      <label for="confirmPassword">Confirm Password:  </label>
       <input
         type="password"
         id="confirmPassword"
-        class="form-control"
+        class="form-control userpass"
         placeholder="Confirm Password"
         v-model="user.confirmPassword"
         required
       />
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      </div>
+      <br>
+      <br>
+      <button class="registerbtn" type="submit">
         Create Account
       </button>
     </form>
+    <div>
+      <br>
+      <br>
+     <router-link :to="{ name: 'login' }"><button class="loginbtn">Have an account?</button></router-link>
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -90,4 +104,46 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.text-center {
+  align-content: center;
+  text-align: center;
+}
+
+.loginbtn {
+  background-color: #18CAE6;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.loginbtn:hover, .loginbtn:focus {
+  background-color: #61E294;
+}
+
+.registerbtn {
+  background-color: #D741A7;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.registerbtn:hover, .registerbtn:focus {
+  background-color: #61E294;
+}
+
+.userpass {
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;
+}
+
+</style>

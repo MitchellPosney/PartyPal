@@ -1,0 +1,260 @@
+song id,genre id,song title,song artist
+1,1,All I Want for Christmas Is You,Mariah Carey
+2,1,Last Christmas,Wham!
+3,1,Santa Tell Me,Ariana Grande
+4,1,Rockin' Around The Christmas Tree - Single Version,Brenda Lee
+5,1,It's Beginning to Look a Lot like Christmas,Michael Bublé
+6,1,Jingle Bell Rock,Bobby Helms
+7,1,Underneath the Tree,Kelly Clarkson
+8,1,"Let It Snow, Let It Snow, Let It Snow",Dean Martin
+9,1,It's the Most Wonderful Time of the Year,Andy Williams
+10,1,Snowman,Sia
+11,1,Mistletoe,Justin Bieber
+12,1,Sleigh Ride,The Ronettes
+13,1,Holly Jolly Christmas,Michael Bublé
+14,1,Feliz Navidad,José Feliciano
+15,1,Wonderful Christmastime (Edited Version) [Remastered],Paul McCartney
+16,1,Christmas (Baby Please Come Home),Mariah Carey
+17,1,Driving Home for Christmas,Chris Rea
+18,1,Let It Snow! Let It Snow! Let It Snow! (with The B. Swanson Quartet),"Frank Sinatra, B. Swanson Quartet"
+19,1,Jingle Bell Rock,Daryl Hall & John Oates
+20,1,Do They Know It's Christmas? - 1984 Version,Band Aid
+21,1,Merry Christmas Everyone - Remastered,Shakin' Stevens
+22,1,Have Yourself A Merry Little Christmas,Sam Smith
+23,1,It's Beginning to Look a Lot Like Christmas (with Mitchell Ayres & His Orchestra),"Perry Como, The Fontane Sisters, Mitchell Ayres & His Orchestra"
+24,1,Last Christmas,Ariana Grande
+25,1,"Baby, It's Cold Outside - Remastered 2004",Dean Martin
+26,1,Happy Xmas (War Is Over) - Remastered 2010,"John Lennon, The Harlem Community Choir, The Plastic Ono Band, Yoko Ono"
+27,1,Santa Baby,Kylie Minogue
+28,1,Thank God It's Christmas,Queen
+29,1,A Holly Jolly Christmas - Single Version,Burl Ives
+30,1,Santa Claus Is Coming To Town,The Jackson 5
+31,1,My Only Wish (This Year),Britney Spears
+32,1,Sleigh Ride,Ella Fitzgerald
+33,1,Step Into Christmas,Elton John
+34,1,"Baby, It's Cold Outside (feat. Meghan Trainor)","Brett Eldredge, Meghan Trainor"
+35,1,Like It's Christmas,Jonas Brothers
+36,1,I'll Be Home for Christmas,Michael Bublé
+37,1,Winter Wonderland,Tony Bennett
+38,1,I Saw Mommy Kissing Santa Claus,The Jackson 5
+39,1,Rudolph The Red-Nosed Reindeer,Dean Martin
+40,1,What Christmas Means To Me,Stevie Wonder
+41,1,One More Sleep,Leona Lewis
+42,1,"Santa Claus Is Comin' to Town - Live at C.W. Post College, Greenvale, NY - December 1975",Bruce Springsteen
+43,1,Santa Baby,"Ariana Grande, Liz Gillies"
+44,1,This Christmas,Christina Aguilera
+45,1,You Make It Feel Like Christmas (feat. Blake Shelton),"Gwen Stefani, Blake Shelton"
+46,1,Santa Claus Is Coming to Town,Michael Bublé
+47,1,Baby It's Cold Outside (duet with Michael Bublé),"Idina Menzel, Michael Bublé"
+48,1,Christmas (Baby Please Come Home),Darlene Love
+49,1,A Holly Jolly Christmas,Brett Eldredge
+50,1,"Merry Christmas, Happy Holidays",*NSYNC
+51,1,White Christmas,"Bing Crosby, Ken Darby Singers, John Scott Trotter & His Orchestra"
+52,1,It's Beginning To Look A Lot Like Christmas,Bing Crosby
+53,1,Joy To The World,Nat King Cole
+54,1,Frosty The Snowman,Ella Fitzgerald
+55,1,Jingle Bells,Frank Sinatra
+56,1,Bring Me Love,John Legend
+57,1,Run Rudolph Run,Chuck Berry
+58,1,Cozy Little Christmas,Katy Perry
+59,1,Shake up Christmas,Train
+60,1,The Christmas Song (Merry Christmas To You),Nat King Cole
+61,1,Here Comes Santa Claus (Right Down Santa Claus Lane),Elvis Presley
+62,1,Winter Wonderland,Hannah Kerr
+63,1,I'll Be Home,Meghan Trainor
+64,1,Wrapped in Red,Kelly Clarkson
+65,1,Last Christmas,James TW
+66,1,Silent Night,Mariah Carey
+67,1,Mistletoe and Holly,Frank Sinatra
+68,1,Fairytale of New York (feat. Kirsty MacColl),"The Pogues, Kirsty MacColl"
+69,1,This Christmas,Donny Hathaway
+70,1,The Christmas Song (Chestnuts Roasting On An Open Fire),"Justin Bieber, Usher"
+71,1,Santa's Coming for Us,Sia
+72,1,The Christmas Song (Shawn Mendes & Camila Cabello),"Shawn Mendes, Camila Cabello"
+73,1,I Wish It Could Be Christmas Everyday,Wizzard
+74,1,Take Me Home For Christmas,Dan + Shay
+75,1,Christmas Tree Farm,Taylor Swift
+76,1,Rudolph The Red-Nosed Reindeer,Burl Ives
+77,1,Christmas Lights,Coldplay
+78,1,"Mary, Did You Know?",Pentatonix
+79,1,Christmas Without You,Ava Max
+80,1,Please Come Home for Christmas - 2013 Remaster,Eagles
+81,1,O Holy Night,Mariah Carey
+82,1,Happy Xmas (War Is Over),Céline Dion
+83,1,Christmas Love,Justin Bieber
+84,1,Under The Mistletoe,"Kelly Clarkson, Brett Eldredge, Atlantic Holiday"
+85,1,Blue Christmas,Elvis Presley
+86,1,Make It To Christmas,Alessia Cara
+87,1,Oh Santa! (feat. Ariana Grande & Jennifer Hudson),"Mariah Carey, Ariana Grande, Jennifer Hudson"
+88,1,Do You Hear What I Hear? - Remastered 2006,Bing Crosby
+89,1,Man With The Bag,Jessie J
+90,1,My Kind Of Present,Meghan Trainor
+91,1,Mistletoe and Wine,Cliff Richard
+92,1,Let It Snow (with Babyface),"Tori Kelly, Babyface"
+93,1,Lonely This Christmas,Mud
+94,1,Rockin' Around The Christmas Tree,Mel & Kim
+95,1,"Oh Holy Night - Recorded at Metropolis Studios, London",Nina Nesbitt
+96,1,Someday At Christmas,Stevie Wonder
+97,1,All I Want (For Christmas),Liam Payne
+98,1,Have Yourself a Merry Little Christmas,Christina Aguilera
+99,1,"White Christmas - Spotify Singles - Holiday, Recorded at Air Studios, London",George Ezra
+100,1,The First Noël (with Faith Hill),"Josh Groban, Faith Hill"
+101,1,It's Christmas,Jamie Cullum
+102,1,Winter Things,Ariana Grande
+103,1,Christmas Time,Backstreet Boys
+104,1,I Need You Christmas,Jonas Brothers
+105,1,Grown-Up Christmas List,Jordan Smith
+106,1,It's Not Christmas 'Til You Come Home - Recorded At Spotify Studios NYC,Norah Jones
+107,1,Merry Christmas Baby,Otis Redding
+108,1,Naughty List (with Dixie),"Liam Payne, Dixie"
+109,1,2000 Miles - 2007 Remaster,Pretenders
+110,1,"Holidays (feat. Earth, Wind & Fire)","Meghan Trainor, Earth\, Wind & Fire"
+111,1,Frosty the Snowman,Fiona Apple
+112,1,Christmas Time Is Here,Brett Eldredge
+113,1,You and Me and Christmastime,Sheffield
+114,1,Christmas (Baby Please Come Home),ROZES
+115,1,"Cuddle Up, Cozy Down Christmas","Dolly Parton, Michael Bublé"
+116,1,Little Drummer Boy,for KING & COUNTRY
+117,1,The Lighthouse Keeper,Sam Smith
+118,1,Christmas Time Is Here - Recorded at Sound Emporium Nashville,Devin Dawson
+119,1,Glittery - From The Kacey Musgraves Christmas Show,"Kacey Musgraves, Troye Sivan"
+120,2,Happy Birthday,Stevie Wonder
+121,2,Celebration - Single Version,Kool & The Gang
+122,2,Birthday,Katy Perry
+123,2,Best Day Of My Life,American Authors
+124,2,"Happy - From ""Despicable Me 2""",Pharrell Williams
+125,2,Good Time,"Owl City, Carly Rae Jepsen"
+126,2,I Gotta Feeling,Black Eyed Peas
+127,2,On Top Of The World,Imagine Dragons
+128,2,Walking On Sunshine,Katrina & The Waves
+129,2,Just Dance,"Lady Gaga, Colby O'Donis"
+130,2,We Are Family,Sister Sledge
+131,2,Feel This Moment (feat. Christina Aguilera),"Pitbull, Christina Aguilera"
+132,2,We Can't Stop,Miley Cyrus
+133,2,Firework,Katy Perry
+134,2,Pretty Shining People,George Ezra
+135,2,Love Generation - Radio Edit,Bob Sinclar
+136,2,Love Is In The Air,John Paul Young
+137,2,I'm So Excited,The Pointer Sisters
+138,2,Solo Dance,Martin Jensen
+139,2,It's a Beautiful Day,Michael Bublé
+140,2,Get Lucky (feat. Pharrell Williams & Nile Rodgers) - Radio Edit,"Daft Punk, Pharrell Williams, Nile Rodgers"
+141,2,Safe And Sound,Capital Cities
+142,2,Lush Life,Zara Larsson
+143,2,Happy Birthday (feat. John Legend),"Kygo, John Legend"
+144,2,Celebration,Madonna
+145,2,Party In The U.S.A.,Miley Cyrus
+146,2,Diamonds,Rihanna
+147,2,Fascination,Alphabeat
+148,2,Uptown Funk (feat. Bruno Mars),"Mark Ronson, Bruno Mars"
+149,2,Birthday,Selena Gomez
+150,2,Shut Up and Dance,WALK THE MOON
+151,2,In Da Club,50 Cent
+152,2,My Best Days Are Ahead Of Me,Danny Gokey
+153,2,Birthday,Anne-Marie
+154,2,Amazing,Seal
+155,2,We Are Your Friends - Justice Vs Simian,"Justice, Simian"
+156,2,B-Day Song,"Madonna, M.I.A."
+157,2,Feel the Love (feat. John Newman) - Radio Edit,"Rudimental, John Newman"
+158,2,Birthday,Kings of Leon
+159,2,Happy Birthday Mr. President,Marilyn Monroe
+160,3,Miami,Will Smith
+161,3,Return of the Mack,Mark Morrison
+162,3,"Jumpin', Jumpin'",Destiny's Child
+163,3,Everybody (Backstreet's Back) - Radio Edit,Backstreet Boys
+164,3,Say You'll Be There,Spice Girls
+165,3,California Love - Original Version,"2Pac, Roger, Dr. Dre"
+166,3,No Diggity,"Blackstreet, Dr. Dre, Queen Pen"
+167,3,Lovefool,The Cardigans
+168,3,The Sign,Ace of Base
+169,3,Tearin' up My Heart - Radio Edit,*NSYNC
+170,3,Summer Girls,LFO
+171,3,Livin' la Vida Loca,Ricky Martin
+172,3,Steal My Sunshine,LEN
+173,3,Mambo No. 5 (a Little Bit of...),Lou Bega
+174,3,Waiting for Tonight,Jennifer Lopez
+175,3,Smooth (feat. Rob Thomas),"Santana, Rob Thomas"
+176,3,All I Wanna Do,Sheryl Crow
+177,3,MMMBop,Hanson
+178,3,Step by Step,New Kids On The Block
+179,3,Crush,Jennifer Paige
+180,3,Only Wanna Be with You,Hootie & The Blowfish
+181,3,Summertime,DJ Jazzy Jeff & The Fresh Prince
+182,3,Life Is A Highway,Tom Cochrane
+183,3,Learn to Fly,Foo Fighters
+184,3,Whoomp! (There It Is),Tag Team
+185,3,"What Is Love - 7"" Mix",Haddaway
+186,3,Walking on Broken Glass,Annie Lennox
+187,3,Unbelievable,EMF
+188,3,Baby Got Back,Sir Mix-A-Lot
+189,3,Man! I Feel Like A Woman!,Shania Twain
+190,3,Genie In a Bottle,Christina Aguilera
+191,3,Macarena - Bayside Boys Remix,Los Del Rio
+192,3,Always Be My Baby,Mariah Carey
+193,3,My Boo - Hitman's Club Mix,Ghost Town DJs
+194,3,Quit Playing Games (With My Heart),Backstreet Boys
+195,3,I'll Be Missing You (feat. 112),"Diddy, Faith Evans, 112"
+196,3,"It Must Have Been Love - From the Film ""Pretty Woman""",Roxette
+197,3,Mo Money Mo Problems (feat. Puff Daddy & Mase) - 2014 Remaster,"The Notorious B.I.G., Mase, Diddy"
+198,3,The Power,SNAP!
+199,3,It's Not Right But It's Okay,Whitney Houston
+200,3,Candy,Mandy Moore
+201,3,Say My Name,Destiny's Child
+202,3,If You Had My Love,Jennifer Lopez
+203,3,"Baby, I Love Your Way","Big Mountain, Tom Lord-Alge"
+204,3,Barbie Girl,Aqua
+205,3,When the Lights Go Out - Radio Edit,"Five, Cutfather & Joe"
+206,3,All Star,Smash Mouth
+207,3,Run-Around,Blues Traveler
+208,3,Something Like That,Tim McGraw
+209,3,"Baby, Baby",Amy Grant
+210,3,Bitch,Meredith Brooks
+211,3,Semi-Charmed Life,Third Eye Blind
+212,3,Genie in a Bottle,Christina Aguilera
+213,3,Right Here Right Now,Jesus Jones
+214,3,Doo Wop (That Thing),Ms. Lauryn Hill
+215,3,Chattahoochee,Alan Jackson
+216,3,I Love You Always Forever,Donna Lewis
+217,3,Bye Bye Bye,*NSYNC
+218,3,Bidi Bidi Bom Bom - 1994 Version,Selena
+219,3,Don't Take It Personal (Just One of Dem Days),Monica
+220,3,...Baby One More Time,Britney Spears
+221,3,Never Ever,"All Saints, Unknown"
+222,3,I Know,Dionne Farris
+223,3,Santeria,Sublime
+224,3,Boombastic,Shaggy
+225,3,Hand in My Pocket - 2015 Remaster,Alanis Morissette
+226,3,Hold On,Wilson Phillips
+227,3,Killing Me Softly With His Song,"Fugees, Ms. Lauryn Hill"
+228,3,Regulate,"Warren G, Nate Dogg"
+229,3,Believe,Cher
+230,3,Just A Girl,No Doubt
+231,3,The Boy Is Mine,"Brandy, Monica"
+232,3,I Wanna Sex You Up - Single Mix,Color Me Badd
+233,3,Where My Girls At,702
+234,3,I Want It That Way,Backstreet Boys
+235,3,Tom's Diner,"Suzanne Vega, DNA"
+236,3,Be My Lover,La Bouche
+237,3,The Impression That I Get,The Mighty Mighty Bosstones
+238,3,"Men In Black - From ""Men In Black"" Soundtrack",Will Smith
+239,3,One Week,Barenaked Ladies
+240,3,The Way,Fastball
+241,3,This Is How We Do It,"Montell Jordan, Wino"
+242,3,Boom Boom Boom - Don't Break My Balls Mix,The Outhere Brothers
+243,3,My Lovin' (You're Never Gonna Get It),En Vogue
+244,3,Show Me Love - Radio Version,Robyn
+245,3,Rhythm Is A Dancer - 12'' Version,SNAP!
+246,3,No Rain,Blind Melon
+247,3,Tubthumping,Chumbawamba
+248,3,The Rhythm of the Night,Corona
+249,3,(You Drive Me) Crazy,Britney Spears
+250,3,Gonna Make You Sweat (Everybody Dance Now),"C & C Music Factory, Freedom Williams"
+251,3,"La Copa de la Vida (La Cancion Oficial de la Copa Mundial, Francia '98) - Spanglish Radio Edit",Ricky Martin
+252,3,Dreams,The Cranberries
+253,3,Under the Bridge,Red Hot Chili Peppers
+254,3,Show Me Love,Robin S
+255,3,I Swear,All-4-One
+256,3,Another Night,Real McCoy
+257,3,Blue (Da Ba Dee),Eiffel 65
+258,3,Gangsta's Paradise,"Coolio, L.V."
+259,3,Watermelon Crawl,Tracy Byrd

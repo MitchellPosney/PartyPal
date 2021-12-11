@@ -26,6 +26,8 @@ export default {
 body {
   background-color: #000022;
   background-image: url("/recordbackground.png");
+  /* background-position: bottom; */
+  background-repeat: no-repeat;
   color: aliceblue;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

@@ -3,8 +3,9 @@
     <div>
         <router-link v-bind:to="{ name: 'home' }"><img src="retroplay_logo_horizontal_transp.png" class="logo"></router-link>
     </div>
-    <div class="searchbar">
-        <text area></text>
+    <div class="searchbararea">
+        <input type="text" placeholder="Search for an event..." class="searchbar" name="eventsearch" size="35">
+        <button type="submit"><i class="fa fa-search"></i></button>
     </div>
     <div class="dropdown">
         <button v-on:click="myFunction()" class="dropbtn">Manage Account</button>
@@ -97,7 +98,6 @@ export default {
   display: inline-block;
   right: 0px;
   padding: 25px;
-
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -124,6 +124,16 @@ export default {
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
+
+.searchbar {
+    align-content: right;
+    right: 25px;
+}
+
+.searchbararea {
+    padding: 40px 0px 40px 140px;
+    
+}
 
 </style>
 

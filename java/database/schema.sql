@@ -46,19 +46,28 @@ CREATE TABLE genre (
         genre_id SERIAL, 
         genre_name varchar(50) NOT NULL UNIQUE,
         CONSTRAINT pk_genre_id PRIMARY KEY (genre_id)
-      
-        
-);     
+);
+
+INSERT INTO genre (genre_name)
+VALUES ('Christmas'),
+       ('Birthday Party'),
+       ('90s Summer Party');
 
 
 CREATE TABLE song (  
         song_id SERIAL, 
         genre_id int, 
-        song_title varchar(50) NOT NULL, 
-        song_artist varchar(50) NOT NULL, 
+        song_title varchar(250) NOT NULL, 
+        song_artist varchar(250) NOT NULL, 
         CONSTRAINT pk_song_id PRIMARY KEY (song_id),    
         CONSTRAINT fk_genre_id FOREIGN KEY (genre_id) REFERENCES genre(genre_id)     
-);    
+);
+
+COPY song 
+FROM 'C:\Users\Public\songs.csv' 
+DELIMITER ','
+CSV HEADER;
+
 
 
 CREATE TABLE playlist (  
@@ -66,7 +75,6 @@ CREATE TABLE playlist (
         playlist_name varchar(50) NOT NULL,   
         CONSTRAINT pk_playlist_id PRIMARY KEY (playlist_id)
        
-            
 );       
 
 CREATE TABLE song_playlist ( 
@@ -100,12 +108,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULi
 INSERT INTO users (username,password_hash,role) VALUES ('dj','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_DJ');  
 
 INSERT INTO hosts (host_id, host_name) VALUES ((SELECT user_id FROM users WHERE username = 'user' AND role = 'ROLE_EVENTHOST'), 'Caroline');  
-INSERT INTO dj (dj_id, dj_name) VALUES ((SELECT user_id FROM users WHERE username = 'dj' AND role = 'ROLE_DJ'), 'Caroline'); 
-INSERT INTO genre (genre_name) VALUES ('Birthday');  
-INSERT INTO song (genre_id, song_title, song_artist) VALUES ((SELECT genre_id FROM genre WHERE genre_name = 'Birthday'), 'Happy Birthday', 'Caroilne'); 
-INSERT INTO playlist (playlist_name) VALUES ('Caroline Birthday Playlist');
-INSERT INTO song_playlist(playlist_id, song_id) VALUES ((SELECT song_id FROM song WHERE song_title = 'Happy Birthday'), ((SELECT playlist_id FROM playlist WHERE playlist_name = 'Caroline Birthday Playlist')));
-INSERT INTO event (event_name) VALUES ('Caroline Birthday Party');
+
 
 
 COMMIT TRANSACTION;
