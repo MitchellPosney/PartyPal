@@ -1,17 +1,18 @@
 package com.techelevator.controller;
 
 
+import com.techelevator.dao.HostDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Event;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.security.Principal;
 
-import com.techelevator.dao.HostDao;
-
+//not working
+//todo
 //@PreAuthorize("isAuthenticated()")
+
 @RestController
 public class EventHostController {
 

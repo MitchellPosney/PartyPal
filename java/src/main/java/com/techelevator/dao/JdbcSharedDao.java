@@ -67,31 +67,16 @@ public class JdbcSharedDao implements SharedDao
     }
 
     @Override
-    public Playlist addSongToPlaylist(int songId, int playListId) {
+    public void addSongToPlaylist(int songId, int playListId) {
         //we need to insert into song playlist and then return songList
         String sql = "INSERT INTO song_playlist (song_id, playlist_id) VALUES (?, ?); ";
        jdbcTemplate.update(sql, songId, playListId);
-
-      return getCurrentPlaylist(playListId);
-
     }
 
 
-@Override
-    public Playlist getCurrentPlaylist(int playlistId) {
-    Playlist currentPlaylist = null;
-    String sql = "SELECT playlist_name, playlist_id " +
-            "FROM playlist " +
-            "WHERE playlist_id = ?;";
-    SqlRowSet results = jdbcTemplate.queryForRowSet(sql, playlistId);
-    if(results.next()) {
-        currentPlaylist = mapRowToPlaylist(results);
-        currentPlaylist.setPlaylistSongs(getCurrentSongs(playlistId));
-    }
-    return currentPlaylist;
-}
+
     @Override
-    public List<Song> getCurrentSongs(int playlistId) {
+    public List<Song> getCurrentPlaylist(int playlistId) {
         List<Song> currentSongPlaylist = new ArrayList<>();
     String sql = "SELECT song.song_title, song.song_artist, song.song_id, song.genre_id " +
             "FROM song " +

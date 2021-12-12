@@ -28,6 +28,7 @@ public class SharedController
 
     }
 
+    //working
     @PreAuthorize("permitAll")
     @RequestMapping(path = "events/find", method = RequestMethod.GET)
     public List<Event> getEventByName(@RequestParam String name) throws EventNotFoundException {
@@ -38,6 +39,8 @@ public class SharedController
             return event;
         }
     }
+
+    //working
     @PreAuthorize("permitAll")
     @RequestMapping(path = "events/{eventId}", method = RequestMethod.GET)
     public Event getEventById(@PathVariable int eventId) throws EventNotFoundException {
@@ -48,8 +51,10 @@ public class SharedController
         return event;
         }
     }
+
+    //working
     @PreAuthorize("permitAll")
-    @RequestMapping(path = "events/playlist/{eventId}", method = RequestMethod.GET)
+    @RequestMapping(path = "events/songs/{eventId}", method = RequestMethod.GET)
     public List<Song> getAvailableSong(@PathVariable int eventId) throws EventNotFoundException {
         Event event = sharedDao.getEventByID(eventId);
         List<Song> availableSongs = new ArrayList<>();
@@ -61,27 +66,31 @@ public class SharedController
 
             return availableSongs;
     }
+
+    //working
     @PreAuthorize("permitAll")
-    @RequestMapping(path = "events/playlist/{playlistId}/{songId]", method = RequestMethod.GET)
-    public Playlist addSongToPlaylist(@RequestBody Event event, @PathVariable int songId) throws Exception {
+    @RequestMapping(path = "events/playlist/{eventId}", method = RequestMethod.GET)
+    public List<Song> getCurrentPlaylist(@PathVariable int eventId) throws EventNotFoundException {
+        Event event = sharedDao.getEventByID(eventId);
+        List<Song> availableSongs = new ArrayList<>();
+        if (event == null) {
 
-//        Playlist playlist = new Playlist();
-//        playlist.setPlaylistId(event.getPlaylistID());
+        } else {
+            availableSongs = sharedDao.getCurrentPlaylist(event.getPlaylistID());
+        }
 
-
-        return sharedDao.addSongToPlaylist(songId, event.getPlaylistID());
+        return availableSongs;
     }
 
-    //events{events}
-    //export populated database genres
-    //grab ones from spotify
-    //select all songs from the genre (avilable)
-    // dj playlist (empty)
-    // exporting data and setting up a genre id
-    //drop it in
-    //put still on the same page
-    //auto refresh
-    //
+    //working
+    @PreAuthorize("permitAll")
+    @RequestMapping(path = "events/playlist/{songId}", method = RequestMethod.PUT)
+    public void addSongToPlaylist(@RequestBody Event event, @PathVariable int songId) throws Exception {
+
+        sharedDao.addSongToPlaylist(songId, event.getPlaylistID());
+    }
+
+
 
 
 

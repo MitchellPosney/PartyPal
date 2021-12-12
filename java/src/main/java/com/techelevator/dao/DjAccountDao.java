@@ -11,13 +11,12 @@ import java.util.Date;
 public interface DjAccountDao {
 
     Event createEvent(Event event, User user);
+
     Event getEventByID(int eventId);
 
     Genre createGenre(Genre genre);
 
     void deleteGenre (int genreId);
-
-    SqlRowSet listAllSongs();
 
     void addSongToGenre(int songId, Genre genre);
 

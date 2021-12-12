@@ -15,6 +15,7 @@ import java.security.Principal;
 @RestController
 @RequestMapping(path="/DJ")
 public class DjAccountController {
+
     private DjAccountDao djDao;
     private UserDao userDao;
 
@@ -23,28 +24,35 @@ public class DjAccountController {
         this.userDao = userDao;
     }
 
+    //not working
     @RequestMapping (path = "/create/event", method = RequestMethod.POST)
     public Event createEvent(Principal principal, @Valid @RequestBody Event event) {
        User user = userDao.findByUsername(principal.getName());
         return djDao.createEvent(event, user);
     }
+
+    //working
     @RequestMapping(path = "/create/genre", method = RequestMethod.POST)
     public Genre createGenre(Principal principal, @Valid @RequestBody Genre genre) {
         return djDao.createGenre(genre);
     }
+
+    //working
     @RequestMapping(path="/delete/{genreId}",method = RequestMethod.DELETE)
     public void deleteGenre(@PathVariable int genreId) throws Exception {
         djDao.deleteGenre(genreId);
     }
+
+    //working
     @RequestMapping(path = "/add/song/{songId}", method = RequestMethod.PUT)
     public void addSongToGenre(@RequestBody Genre genre, @PathVariable int songId) throws Exception {
         djDao.addSongToGenre(songId, genre);
     }
+
+    //working
     @RequestMapping(path = "/remove/song/{songId}", method = RequestMethod.PUT)
     public void removeSongFromGenre(@RequestBody Genre genre, @PathVariable int songId) throws Exception {
         djDao.deleteSongFromGenre(songId, genre);
     }
-
-
 
 }

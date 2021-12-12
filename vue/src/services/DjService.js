@@ -6,23 +6,23 @@ const http = axios.create({
 export default { 
 
 createEvent(event) { 
-    return http.post('/event', event);
+    return http.post('/create/event', event);
     },
 
 addGenre(genre) { 
-    return http.post('/genres', genre);
+    return http.post('/create/genre', genre);
 }, 
 
 deleteGenre(genreID) {
-    return http.delete(`/genres/${genreID}`);
+    return http.delete(`/delete/${genreID}`);
   }, 
 
-addSongToGenre(songID, genreID, song) { 
- return http.post(`/addSongToGenre/${songID}/${genreID}`, song);
+addSongToGenre(songID, genre,) { 
+ return http.post(`/add/song/${songID}`, genre);
 }, 
 
-deleteSongFromGenre(song) { 
-return http.put(`/deleteSongFromGenre/${song.id}`, song);
+deleteSongFromGenre(songID, genre) { 
+return http.put(`/remove/song/${songID}`, genre);
 },
 
 

@@ -5,10 +5,10 @@ const http = axios.create({
 export default {
    
     updateEvent(event) {
-        return http.put(`/events/${event.id}`, event);
+        return http.put(`/edit/event/${event.id}`, event);
       },
 
-    get(event) {
-      return http.get(`/events/`)
-    }
+    // get(event) {
+    //   return http.get(`/events/`)
+    // }
 }
