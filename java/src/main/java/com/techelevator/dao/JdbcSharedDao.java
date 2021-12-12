@@ -1,7 +1,9 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Event;
+import com.techelevator.model.Playlist;
 import com.techelevator.model.Song;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -18,12 +20,7 @@ public class JdbcSharedDao implements SharedDao
         this.jdbcTemplate = jdbcTemplate;
     }
 
-//    @Override
-//    public LigetEventByName(String eventName) {
-//        String event = "SELECT * FROM event WHERE event_name = ?";
-//        Event[] results = jdbcTemplate.queryForRowSet(event,eventName);
-//        mapRowToEvent();
-//    }
+
 
     @Override
     public List<Event> getEventByName(String eventName) {
@@ -32,8 +29,6 @@ public class JdbcSharedDao implements SharedDao
         String sql = "SELECT event_id, event_host, event_dj, playlist_id, genre_id," +
                 " event_name, event_date, start_time, duration_minutes, event_location " +
                 "FROM event " +
-//                "INNER JOIN dj ON event_dj = dj_id " +
-//                "INNER JOIN hosts ON event_host = host_id dj_name, host_name," +
                 "WHERE event_name LIKE ? ;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, eventName);
         while (results.next()) {
@@ -42,55 +37,90 @@ public class JdbcSharedDao implements SharedDao
         }
         return eventList;
     }
-
     @Override
-    public Event getEventPlaylist(int eventId) {
-        return null;
-
-    }
-
-    @Override
-    public Event getAvailableSongs(int genreId) {
-        return null;
-    }
-
-    @Override
-    public boolean addSongToPlaylist(int songId) {
-        return false;
-    }
-
-    public String getDj(long djId) {
-        String event = "SELECT dj_name FROM dj WHERE dj_id = ?";
-        return jdbcTemplate.queryForObject(event, String.class, djId);
-    }
-
-    public String getHost(long hostId) {
-        String event = "SELECT host_name FROM host WHERE host_id = ?";
-        return jdbcTemplate.queryForObject(event, String.class, hostId);
-    }
-
-    public List<Song> getPlaylist(long playlistId) {
-        String event2 = "SELECT *, c.username AS sender_name, d.username AS receiver_name FROM song_playlist " +
-                "JOIN song_playlist AS a ON a.account_id = transfers.account_from " +
-                "JOIN accounts AS b ON b.account_id = transfers.account_to " +
-                "JOIN users AS c ON c.user_id = a.user_id " +
-                "JOIN users AS d ON d.user_id = b.user_id " +
-                "WHERE transfers.account_from = ? OR transfers.account_to = ?;";
-
-        String event = "SELECT * FROM song " +
-                        "JOIN song_playlist AS a ON a.account_id = transfers.account_from " +
-                        "WHERE playlist_id = ?";
-        List<Song> songs = new ArrayList<>();
-        SqlRowSet results = jdbcTemplate.queryForRowSet(event, String.class, playlistId);
-        while(results.next()) {
-            Song song = mapRowToSong(results);
-            songs.add(song);
+    public Event getEventByID(int eventId) {
+        Event event = null;
+        String sql = "SELECT * " +
+                "FROM event " +
+                "WHERE event_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, eventId);
+        if (results.next()) {
+            event = mapRowToEvent(results);
         }
-        return songs;
+        return event;
     }
 
-    private Song mapRowToSong(SqlRowSet rs) {
-        return new Song(rs.getLong("genre_id"),rs.getString("song_title"),rs.getString("song_artist"));
+    @Override
+    public List<Song> getAvailableSongList(int genreId) {
+        List<Song> availableSongList = new ArrayList<>();
+        String sql = "SELECT song_id, song_title, song_artist, song.genre_id " +
+                "FROM song " +
+                "INNER JOIN genre ON genre.genre_id = song.genre_id " +
+                "WHERE genre.genre_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, genreId);
+        while (results.next()) {
+            Song song = mapRowToSong(results);
+            availableSongList.add(song);
+        }
+        return availableSongList;
+
+    }
+
+    @Override
+    public Playlist addSongToPlaylist(int songId, int playListId) {
+        //we need to insert into song playlist and then return songList
+        String sql = "INSERT INTO song_playlist (song_id, playlist_id) VALUES (?, ?); ";
+       jdbcTemplate.update(sql, songId, playListId);
+
+      return getCurrentPlaylist(playListId);
+
+    }
+
+
+@Override
+    public Playlist getCurrentPlaylist(int playlistId) {
+    Playlist currentPlaylist = null;
+    String sql = "SELECT playlist_name, playlist_id " +
+            "FROM playlist " +
+            "WHERE playlist_id = ?;";
+    SqlRowSet results = jdbcTemplate.queryForRowSet(sql, playlistId);
+    if(results.next()) {
+        currentPlaylist = mapRowToPlaylist(results);
+        currentPlaylist.setPlaylistSongs(getCurrentSongs(playlistId));
+    }
+    return currentPlaylist;
+}
+    @Override
+    public List<Song> getCurrentSongs(int playlistId) {
+        List<Song> currentSongPlaylist = new ArrayList<>();
+    String sql = "SELECT song.song_title, song.song_artist, song.song_id, song.genre_id " +
+            "FROM song " +
+            "INNER JOIN song_playlist ON song_playlist.song_id = song.song_id " +
+            "WHERE song_playlist.playlist_id = ?;";
+    SqlRowSet results = jdbcTemplate.queryForRowSet(sql, playlistId);
+        while(results.next()) {
+        Song song = mapRowToSong(results);
+        currentSongPlaylist.add(song);
+        }
+
+        return currentSongPlaylist;
+    }
+
+
+    private Song mapRowToSong(SqlRowSet results) {
+        Song song = new Song();
+        song.setSongTitle(results.getString("song_title"));
+        song.setSongArtist(results.getString("song_artist"));
+        song.setSongId(results.getLong("song_id"));
+        song.setGenreId(results.getLong("genre_id"));
+       return song;
+    }
+    private Playlist mapRowToPlaylist(SqlRowSet results) {
+        Playlist playlist = new Playlist();
+        playlist.setPlaylistId(results.getInt("playlist_id"));
+        playlist.setPlaylistName(results.getString("playlist_name"));
+
+        return playlist;
     }
 
     private Event mapRowToEvent(SqlRowSet results) {
@@ -98,6 +128,7 @@ public class JdbcSharedDao implements SharedDao
         event.setEventId(results.getInt("event_id"));
 //        event.setEventHost(results.getString("host_name"));
 //        event.setEventDJ(results.getString("dj_name"));
+        event.setEventName(results.getString("event_name"));
         event.setEventHostID(results.getInt("event_host"));
         event.setEventDJId(results.getInt("event_dj"));
         event.setPlaylistID(results.getInt("playlist_id"));
@@ -112,4 +143,6 @@ public class JdbcSharedDao implements SharedDao
 
 
     }
+
+
 }

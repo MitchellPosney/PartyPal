@@ -2,6 +2,7 @@ package com.techelevator.model;
 
 public class Song
 {
+    private Long songId;
     private Long genreId;
     private String songTitle;
     private String songArtist;
@@ -15,6 +16,14 @@ public class Song
         this.genreId = genreId;
         this.songTitle = songTitle;
         this.songArtist = songArtist;
+    }
+
+    public Long getSongId() {
+        return songId;
+    }
+
+    public void setSongId(Long songId) {
+        this.songId = songId;
     }
 
     public Long getGenreId() {

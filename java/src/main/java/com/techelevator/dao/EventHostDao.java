@@ -1,11 +1,7 @@
 package com.techelevator.dao;
 
-public interface EventHostDao
-{
-    void disapproveSongSuggestion();
+import com.techelevator.model.Event;
 
-    void approveSongSuggestion();
-
-
-
+public interface EventHostDao {
+    boolean updateEvent(Event event, int eventId);
 }

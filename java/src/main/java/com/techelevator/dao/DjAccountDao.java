@@ -1,5 +1,7 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.Event;
+import com.techelevator.model.User;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 import java.sql.Time;
@@ -15,7 +17,8 @@ public interface DjAccountDao
 
     void removeSongFromPlaylist(long songId, long playlistId);
 
-    void createEvent(int hostId, int djId, int playlistId, String eventName, Date eventDate, Time startTime, int durationMinutes, String eventLocation);
+    Event createEvent(Event event, User user);
+    Event getEventByID(int eventId);
 
     SqlRowSet listAllSongs();
 
