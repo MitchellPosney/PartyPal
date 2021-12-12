@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Event;
+import com.techelevator.model.Genre;
 import com.techelevator.model.Song;
 import com.techelevator.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,33 +22,33 @@ public class JdbcDjAccountDao implements DjAccountDao {
     public JdbcDjAccountDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-    @Override
-    public void songCreate(long genre_id, String song_title, String song_artist)
-    {
-        // create song
-        String insertSong = "INSERT INTO song (genre_id,song_title,song_artist) values(?,?,?)";
-        jdbcTemplate.update(insertSong, genre_id, song_title, song_artist);
-    }
-    @Override
-    public void songRemove(long songId)
-    {
-        String sql = "DELETE FROM song WHERE id = ? ";
-        jdbcTemplate.update(sql, songId);
-    }
-
-    @Override
-    public void addSongToPlaylist(long songId, long playlistId)
-    {
-        // create song
-        String insertSong = "INSERT INTO song_playlist (song_id,playlist_id) values(?,?)";
-        jdbcTemplate.update(insertSong, songId, playlistId);
-    }
-    @Override
-    public void removeSongFromPlaylist(long songId, long playlistId)
-    {
-        String sql = "DELETE FROM song_playlist WHERE song_id = ? AND playlist_id = ? ";
-        jdbcTemplate.update(sql, songId, playlistId);
-    }
+//    @Override
+//    public void songCreate(long genre_id, String song_title, String song_artist)
+//    {
+//        // create song
+//        String insertSong = "INSERT INTO song (genre_id,song_title,song_artist) values(?,?,?)";
+//        jdbcTemplate.update(insertSong, genre_id, song_title, song_artist);
+//    }
+//    @Override
+//    public void songRemove(long songId)
+//    {
+//        String sql = "DELETE FROM song WHERE id = ? ";
+//        jdbcTemplate.update(sql, songId);
+//    }
+//
+//    @Override
+//    public void addSongToPlaylist(long songId, long playlistId)
+//    {
+//        // create song
+//        String insertSong = "INSERT INTO song_playlist (song_id,playlist_id) values(?,?)";
+//        jdbcTemplate.update(insertSong, songId, playlistId);
+//    }
+//    @Override
+//    public void removeSongFromPlaylist(long songId, long playlistId)
+//    {
+//        String sql = "DELETE FROM song_playlist WHERE song_id = ? AND playlist_id = ? ";
+//        jdbcTemplate.update(sql, songId, playlistId);
+//    }
 
     @Override
     public Event getEventByID(int eventId) {
@@ -61,6 +62,42 @@ public class JdbcDjAccountDao implements DjAccountDao {
         }
         return event;
     }
+
+    public Genre getGenreById(int genreId) {
+        Genre genre = null;
+        String sql = "SELECT * " +
+                "FROM genre " +
+                "WHERE genre_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, genreId);
+        if (results.next()) {
+            genre = mapRowToGenre(results);
+        }
+        return genre;
+    }
+
+    @Override
+    public Genre createGenre(Genre genre) {
+        String sql = "INSERT INTO genre(genre_name) " +
+                "VALUES (?) RETURNING genre_id;";
+        int newId = jdbcTemplate.queryForObject(sql, Integer.class, genre.getGenreName());
+
+        return getGenreById(newId);
+    }
+
+    @Override
+    public void deleteGenre(int genreId) {
+
+            String sql1 = " UPDATE event SET genre_id = ? WHERE genre_id = ?;";
+            jdbcTemplate.update(sql1, null, genreId);
+
+            String sql2 = " UPDATE song SET genre_id = ? WHERE genre_id = ?;";
+            jdbcTemplate.update(sql2, null, genreId);
+
+            String sql = " DELETE FROM genre WHERE genre_id = ?;";
+            jdbcTemplate.update(sql,genreId);
+
+    }
+
 
     @Override
     public Event createEvent(Event event, User user) {
@@ -83,6 +120,25 @@ public class JdbcDjAccountDao implements DjAccountDao {
             songs.add(mapRowToSong(rowSet));
         }
         return rowSet;
+    }
+
+    @Override
+    public void addSongToGenre(int songId, Genre genre) {
+        String sql = " UPDATE song SET genre_id = ? WHERE song_id = ?;";
+        jdbcTemplate.update(sql, genre.getGenreId(), songId);
+    }
+
+    @Override
+    public void deleteSongFromGenre(int songId, Genre genre) {
+        String sql = " UPDATE song SET genre_id = ? WHERE song_id = ? AND genre_id = ?;";
+        jdbcTemplate.update(sql, null, songId, genre.getGenreId());
+    }
+
+    private Genre mapRowToGenre (SqlRowSet results){
+        Genre genre = new Genre();
+        genre.setGenreId(results.getInt("genre_id"));
+        genre.setGenreName(results.getString("genre_name"));
+        return genre;
     }
 
     private Song mapRowToSong(SqlRowSet rs)

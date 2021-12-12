@@ -3,7 +3,7 @@ package com.techelevator.dao;
 import com.techelevator.model.Event;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class JdbcEventHostDao implements EventHostDao {
+public class JdbcEventHostDao implements HostDao {
     private JdbcTemplate jdbcTemplate;
     @Override
     public boolean updateEvent(Event updatedEvent, int eventId) {
