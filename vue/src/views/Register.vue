@@ -1,9 +1,17 @@
 <template>
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+      <h1 class="h3 mb-3 font-weight-normal"> Create Account For A Dj Or An Event Host </h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
+      </div> 
+      <div>     
+        <label for="role"> Are you a Dj or an Event Host? </label>
+        <select v-on:click="getRoleOfUser()" name="role" id="role" 
+        v-model="user.role" > 
+          <option id="Dj" value="Dj"> Dj </option> 
+          <option id="Host" value="Host"> Event Host </option>
+        </select>
       </div>
       <div>
       <label for="username">Username:  </label>
@@ -65,7 +73,7 @@ export default {
         username: '',
         password: '',
         confirmPassword: '',
-        role: 'user',
+        role: 'Dj',
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
@@ -99,9 +107,15 @@ export default {
     clearErrors() {
       this.registrationErrors = false;
       this.registrationErrorMsg = 'There were problems registering this user.';
-    },
+    }, //if host is selected if Dj   
+      getRoleOfUser() {
+             if(document.getElementById('role').value == "Host") { 
+                this.user.role = "Host";
+             }
+        },
   },
 };
+
 </script>
 
 <style>

@@ -16,8 +16,8 @@ import java.util.List;
 
 @PreAuthorize("permitAll")
 @RestController
-public class SharedController
-{
+public class SharedController {
+
     private SharedDao sharedDao;
     private UserDao userDao;
 
@@ -25,7 +25,6 @@ public class SharedController
     public SharedController(SharedDao sharedDao, UserDao userDao) {
         this.sharedDao = sharedDao;
         this.userDao = userDao;
-
     }
 
     //working
@@ -78,9 +77,9 @@ public class SharedController
         } else {
             availableSongs = sharedDao.getCurrentPlaylist(event.getPlaylistID());
         }
-
         return availableSongs;
     }
+
 
     //working
     @PreAuthorize("permitAll")
