@@ -4,8 +4,10 @@
         <router-link v-bind:to="{ name: 'home' }"><img src="retroplay_logo_horizontal_transp.png" class="logo"></router-link>
     </div>
     <div class="searchbararea">
-        <input type="text" placeholder="Search for an event..." class="searchbar" name="eventsearch" size="35">
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <input type="text" v-model="searchparameters" placeholder="Search for an event..." class="searchbar" name="eventsearch" size="35">
+        <router-link v-bind:to="{name: 'search'}">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </router-link>
     </div>
     <div class="dropdown">
         <button v-on:click="myFunction()" class="dropbtn">Manage Account</button>
