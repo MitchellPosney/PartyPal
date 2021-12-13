@@ -4,8 +4,8 @@
         <router-link v-bind:to="{ name: 'home' }"><img src="retroplay_logo_horizontal_transp.png" class="logo"></router-link>
     </div>
     <div class="searchbararea">
-        <input type="text" placeholder="Search for an event..." class="searchbar" name="eventsearch" size="35">
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <input v-model="name" type="text" placeholder="Search for an event..." class="searchbar" name="eventsearch" size="35">
+        <button v-on:click="handleGetEvent"><i class="fa fa-search"></i></button>
     </div>
     <div class="dropdown">
         <button v-on:click="myFunction()" class="dropbtn">Manage Account</button>
@@ -22,10 +22,19 @@
 
 <script>
 export default {
+    data(){
+        return {
+            name: "",
+        }
+    },
     name: "nav-bar",
     methods: {
         myFunction() {
              document.getElementById("myDropdown").classList.toggle("show");
+        },
+        handleGetEvent(){
+            console.log(this.name)
+            this.$router.push({ name: 'Search', query: { name: this.name }})
         },
 //         window:onclick = function(event) {
 //              if (!event.target.matches('.dropbtn')) {
@@ -42,13 +51,9 @@ export default {
 
     },
 
-    data() {
-        return {
-            
-        }
-    }
 
-}
+
+};
 
 
 </script>
