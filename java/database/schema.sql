@@ -26,21 +26,7 @@ CREATE TABLE users (
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 ); 
 
-CREATE TABLE hosts ( 
-        host_id int, 
-        host_name varchar(50) NOT NULL,
-        CONSTRAINT pk_host_id PRIMARY KEY (host_id),  
-        CONSTRAINT fk_host_id FOREIGN KEY (host_id) REFERENCES users(user_id) 
-        
-);   
-
-CREATE TABLE dj ( 
-        dj_id int, 
-        dj_name varchar(50) NOT NULL,
-        CONSTRAINT pk_dj_id PRIMARY KEY (dj_id),  
-        CONSTRAINT fk_dj_id FOREIGN KEY (dj_id) REFERENCES users(user_id) 
-        
-);     
+ 
 
 CREATE TABLE genre ( 
         genre_id SERIAL, 
@@ -95,20 +81,20 @@ CREATE TABLE event (
         event_name varchar(50) NOT NULL, 
         event_date date, 
         start_time time, 
-        duration_minutes int CHECK (duration_minutes >= 30),  
+        duration_minutes int,  
         event_location varchar(50),
         CONSTRAINT pk_event_id PRIMARY KEY (event_id),   
         CONSTRAINT fk_genre_id FOREIGN KEY (genre_id) REFERENCES genre(genre_id),     
         CONSTRAINT fk_playlist_id FOREIGN KEY (playlist_id) REFERENCES playlist(playlist_id),   
-        CONSTRAINT fk_event_host FOREIGN KEY (event_host) REFERENCES hosts(host_id),
-        CONSTRAINT fk_event_dj FOREIGN KEY (event_dj) REFERENCES dj(dj_id)  
+        CONSTRAINT fk_event_host FOREIGN KEY (event_host) REFERENCES users(user_id),
+        CONSTRAINT fk_event_dj FOREIGN KEY (event_dj) REFERENCES users(user_id)  
 );  
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_EVENTHOST');
 INSERT INTO users (username,password_hash,role) VALUES ('dj','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_DJ');  
 
-INSERT INTO hosts (host_id, host_name) VALUES ((SELECT user_id FROM users WHERE username = 'user' AND role = 'ROLE_EVENTHOST'), 'Caroline');  
 
+INSERT INTO playlist (playlist_name) VALUES ('Mitchell');
 
 
 COMMIT TRANSACTION;
