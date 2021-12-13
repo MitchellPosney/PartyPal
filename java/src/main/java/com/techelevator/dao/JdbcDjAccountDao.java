@@ -109,18 +109,18 @@ public class JdbcDjAccountDao implements DjAccountDao {
         return getEventByID(newId);
     }
 
-    @Override
-    public SqlRowSet listAllSongs()
-    {
-        String availableSongs = "SELECT * FROM song";
-        List<Song> songs = new ArrayList<>();
-        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(availableSongs);
-        while (rowSet.next())
-        {
-            songs.add(mapRowToSong(rowSet));
-        }
-        return rowSet;
-    }
+//    @Override
+//    public SqlRowSet listAllSongs()
+//    {
+//        String availableSongs = "SELECT * FROM song";
+//        List<Song> songs = new ArrayList<>();
+//        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(availableSongs);
+//        while (rowSet.next())
+//        {
+//            songs.add(mapRowToSong(rowSet));
+//        }
+//        return rowSet;
+//    }
 
     @Override
     public void addSongToGenre(int songId, Genre genre) {
