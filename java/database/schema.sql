@@ -37,7 +37,9 @@ CREATE TABLE genre (
 INSERT INTO genre (genre_name)
 VALUES ('Christmas'),
        ('Birthday Party'),
-       ('90s Summer Party');
+       ('90s Summer Party'),
+       ('Wedding'),
+       ('2021 Graduation');
 
 
 CREATE TABLE song (  
