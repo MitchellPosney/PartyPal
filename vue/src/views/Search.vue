@@ -18,7 +18,7 @@ export default {
     created(){
         sharedService.getEvent(this.$route.query.name).then(res=>{
             console.log(res.data)
-            //this.Events=res.data
+            this.Events=res.data
         })
 
     },

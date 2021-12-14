@@ -3,7 +3,7 @@ import axios from 'axios';
 export default {
 getEvent(eventName) {  
   //(`events/find?name=${eventName}`
-    return axios.get(`events/find/${eventName}`);
+    return axios.get(`/events/find?name=${eventName}`);
 },   
 
 getEventById(eventID) { 

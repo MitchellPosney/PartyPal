@@ -53,7 +53,7 @@ CREATE TABLE song (
 );
 
 COPY song 
-FROM 'C:\Users\Public\songs.csv' 
+FROM 'songs.csv' 
 DELIMITER ','
 CSV HEADER;
 
