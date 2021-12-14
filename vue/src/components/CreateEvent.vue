@@ -39,7 +39,7 @@
 
     </div>
     <div class="form-group">
-      <label for="playlist"> Playlist Name:  </label>
+      <label for="playlist"> Playlist ID:  </label>
       <input
         id="playlist"
         type="text"
