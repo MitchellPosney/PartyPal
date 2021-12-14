@@ -20,9 +20,13 @@ public class Event {
     private int playlistID;
     @JsonProperty("name")
     private String eventName;
+    @JsonProperty("date")
     private Date eventDate;
+    @JsonProperty("time")
     private Time startTime;
+    @JsonProperty("duration")
     private int eventMinutes;
+    @JsonProperty("location")
     private String eventLocation;
 
     public Event() {

@@ -73,19 +73,20 @@
     </div>
     <div class="form-group">
       <label for="time">Length of Event in Minutes: </label>
-      <input type="number" id="quantity" name="quantity" min="30" max="480" />
+      <input type="number" id="duration" name="quantity" min="30" max="480" />
 
     </div>
     <div class="form-group">
-      <label for="location"> Location: </label>
-      <textarea
+      <label for="location"> Location: </label> 
+       <input
         id="location"
+        type="text"
         class="form-control"
         v-model="event.location"
-      ></textarea>
+        autocomplete="off" 
+      />
     </div>
-    <br>
-    <br>
+
     
     <button
       class="btn btn-cancel"
@@ -120,7 +121,7 @@ export default {
         genre: 2,
         date: "",
         time: "",
-        duration: "",
+        duration: 35,
         location: "",
       },
       errorMsg: "",
