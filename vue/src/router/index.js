@@ -58,7 +58,8 @@ const router = new Router({
     {
       path: '/createEvent',
       name: 'CreateEvent',
-      component: CreateEvent
+      component: CreateEvent,
+      requiresAuth: true
     }, 
     {
       path: '/event/:eventID/details',
@@ -86,12 +87,13 @@ router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(x => x.meta.requiresAuth);
 
   // If it does and they are not logged in, send the user to "/login"
-  if (requiresAuth && store.state.token === '') {
+  if (requiresAuth && store.state.token === '') { 
     next("/login");
   } else {
     // Else let them go to their next destination
-    next();
-  }
+    next(); 
+  } 
+  
 });
 
 export default router;
