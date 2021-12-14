@@ -118,11 +118,11 @@ export default {
         name: "",
         host: "",
         playlist: 1,
-        genre: 2,
-        date: "",
-        time: "",
-        duration: 35,
-        location: "",
+        genre: 2
+        // date: "",
+        // time: "",
+        // duration: 35,
+        // location: "",
       },
       errorMsg: "",
     };
@@ -134,11 +134,11 @@ export default {
         name: this.event.name,
         host: this.event.host, 
         playlist: this.event.playlist,
-        genre: this.event.genre,
-        date: this.event.date,
-        time: this.event.time,
-        duration: this.event.duration,
-        location: this.event.location,
+        genre: this.event.genre
+        // date: this.event.date,
+        // time: this.event.time,
+        // duration: this.event.duration,
+        // location: this.event.location,
  
       };
 
