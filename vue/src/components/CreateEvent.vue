@@ -49,7 +49,7 @@
         
       />
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="date">Date of Event:  </label>
       <input
         type="date"
@@ -59,8 +59,8 @@
         min="2021-17-12"
         max="2022-17-12"
       />
-    </div>
-    <div class="form-group">
+    </div> -->
+    <!-- <div class="form-group">
       <label for="time">Choose a Start time for your Event:</label>
 
       <input
@@ -70,8 +70,8 @@
         min="08:00"
         max="23:00"
       />
-    </div>
-    <div class="form-group">
+    </div> -->
+    <!-- <div class="form-group">
       <label for="time">Length of Event in Minutes: </label>
       <input type="number" id="duration" name="quantity" min="30" max="480" />
 
@@ -85,7 +85,7 @@
         v-model="event.location"
         autocomplete="off" 
       />
-    </div>
+    </div> -->
 
     
     <button
