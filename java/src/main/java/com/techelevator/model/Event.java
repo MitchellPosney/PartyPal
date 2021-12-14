@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
@@ -7,12 +9,16 @@ import java.util.Date;
 public class Event {
     private int eventId;
     private String eventHost;
+    @JsonProperty("host")
     private int eventHostID;
     private String eventDJ;
     private int eventDJId;
+    @JsonProperty("genre")
     private int genreId;
-    private ArrayList<Song> playlist;
+//    private ArrayList<Song> playlist;
+    @JsonProperty("playlist")
     private int playlistID;
+    @JsonProperty("name")
     private String eventName;
     private Date eventDate;
     private Time startTime;
@@ -23,10 +29,10 @@ public class Event {
 
     }
 
-    public Event(String eventHost, String eventDJ, ArrayList<Song> playlist, String eventName, Date eventDate, Time startTime, int eventMinutes, String eventLocation) {
+    public Event(String eventHost, String eventDJ, int playlistID, String eventName, Date eventDate, Time startTime, int eventMinutes, String eventLocation) {
         this.eventHost = eventHost;
         this.eventDJ = eventDJ;
-        this.playlist = playlist;
+        this.playlistID = playlistID;
         this.eventName = eventName;
         this.eventDate = eventDate;
         this.startTime = startTime;
@@ -47,9 +53,9 @@ public class Event {
         return eventDJ;
     }
 
-    public ArrayList<Song> getPlaylist() {
-        return playlist;
-    }
+//    public ArrayList<Song> getPlaylist() {
+//        return playlist;
+//    }
 
     public String getEventName() {
         return eventName;
@@ -99,7 +105,7 @@ public class Event {
 
     public void setEventDJId(int eventDJId) { this.eventDJId = eventDJId; }
 
-    public void setPlaylist(ArrayList<Song> playlist) { this.playlist = playlist; }
+
 
     public void setEventName(String eventName) { this.eventName = eventName; }
 

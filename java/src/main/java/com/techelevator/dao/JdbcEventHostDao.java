@@ -7,6 +7,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class JdbcEventHostDao implements HostDao {
     private JdbcTemplate jdbcTemplate;
+
+    public JdbcEventHostDao(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
     @Override
     public boolean updateEvent(Event updatedEvent, int eventId) {
         String sql = "UPDATE event " +

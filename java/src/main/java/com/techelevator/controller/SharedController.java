@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @PreAuthorize("permitAll")
+@CrossOrigin
 @RestController
 public class SharedController {
 

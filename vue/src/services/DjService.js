@@ -1,28 +1,26 @@
 import axios from 'axios';
-const http = axios.create({
-    baseURL: "http://localhost:3000"
-  });
+
 
 export default { 
 
 createEvent(event) { 
-    return http.post('/create/event', event);
+    return axios.post('/DJ/create/event', event);
     },
 
 addGenre(genre) { 
-    return http.post('/create/genre', genre);
+    return axios.post('/create/genre', genre);
 }, 
 
 deleteGenre(genreID) {
-    return http.delete(`/delete/${genreID}`);
+    return axios.delete(`/delete/${genreID}`);
   }, 
 
 addSongToGenre(songID, genre,) { 
- return http.post(`/add/song/${songID}`, genre);
+ return axios.post(`/add/song/${songID}`, genre);
 }, 
 
 deleteSongFromGenre(songID, genre) { 
-return http.put(`/remove/song/${songID}`, genre);
+return axios.put(`/remove/song/${songID}`, genre);
 },
 
 

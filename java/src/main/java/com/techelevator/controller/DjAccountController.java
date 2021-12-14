@@ -15,6 +15,7 @@ import java.security.Principal;
 
 
 @PreAuthorize("isAuthenticated()")
+@CrossOrigin
 @RestController
 @RequestMapping(path="/DJ")
 

@@ -10,7 +10,7 @@
         type="text"
         class="form-control"
         v-model="event.name"
-        autocomplete="off"
+        autocomplete="off" required
       />
     </div>
     <div class="form-group">
@@ -20,18 +20,20 @@
         type="text"
         class="form-control"
         v-model="event.host"
-        autocomplete="off"
+        autocomplete="off" 
+        required
       />
     </div>
 
     <div class="form-group">
       <label for="genre"> Genre:  </label>
-      <select id="genre" class="form-control" v-model="event.genre">
+      <select id="genre" class="form-control" v-model="event.genre" >
         <option value="Graduation">Graduation</option>
         <option value="Summer">Summer Party</option>
         <option value="Birthday">Birthday Party</option>
         <option value="Christmas">Christmas</option>
-        <option value="Wedding">Wedding</option>
+        <option value="Wedding">Wedding</option> 
+        
       </select>
 
 
@@ -43,7 +45,8 @@
         type="text"
         class="form-control"
         v-model="event.playlist"
-        autocomplete="off"
+        autocomplete="off" 
+        
       />
     </div>
     <div class="form-group">
@@ -98,14 +101,14 @@
 
 <script>
 import djService from "../services/DjService";
-import hostService from "../services/EventHostService";
+// import hostService from "../services/EventHostService";
 
 export default {
   name: "event-form",
   props: {
     eventID: {
       type: Number,
-      default: 0,
+      // default: 0,
     },
   },
   data() {
@@ -114,7 +117,7 @@ export default {
         name: "",
         host: "",
         playlist: 1,
-        genre: "",
+        genre: 2,
         date: "",
         time: "",
         duration: "",
@@ -128,52 +131,69 @@ export default {
       const newEvent = {
         eventId: Number(this.$route.params.eventID),
         name: this.event.name,
-        host: this.event.host,
+        host: this.event.host, 
+        playlist: this.event.playlist,
         genre: this.event.genre,
         date: this.event.date,
         time: this.event.time,
         duration: this.event.duration,
         location: this.event.location,
-
-        // date: moment().format("MMM Do YYYY")//right now
+ 
       };
 
-      if (this.eventId === 0) {
+      // if (this.eventId === 'NaN') {
         // add
         djService
           .createEvent(newEvent)
-          .then((response) => {
-            if (response.status === 201) {
-              this.$router.push(`/event/${newEvent.eventId}/details`);
-            }
-          })
-          .catch((error) => {
-            this.handleErrorResponse(error, "adding");
-          });
-      } else {
-        // update
-        newEvent.id = this.eventID;
-        newEvent.name = this.event.name;
-        (newEvent.host = this.event.host),
-          (newEvent.genre = this.event.genre),
-          (newEvent.date = this.event.date),
-          (newEvent.time = this.event.time),
-          (newEvent.duration = this.event.duration),
-          (newEvent.location = this.event.location);
-
-        hostService
-          .updateEvent(newEvent)
           .then((response) => {
             if (response.status === 200) {
               this.$router.push(`/event/${newEvent.eventId}/details`);
             }
           })
           .catch((error) => {
-            this.handleErrorResponse(error, "updating");
+            this.handleErrorResponse(error, "creating or updating");
           });
-      }
+      // } else {
+      //   // update
+      //   newEvent.id = this.eventID;
+      //   newEvent.name = this.event.name;
+      //   (newEvent.host = this.event.host),
+      //     (newEvent.genre = this.event.genre),
+      //     (newEvent.date = this.event.date),
+      //     (newEvent.time = this.event.time),
+      //     (newEvent.duration = this.event.duration),
+      //     (newEvent.location = this.event.location);
+
+      //   hostService
+      //     .updateEvent(newEvent)
+      //     .then((response) => {
+      //       if (response.status === 200) {
+      //         this.$router.push(`/event/${newEvent.eventId}/details`);
+      //       }
+      //     })
+      //     .catch((error) => {
+      //       this.handleErrorResponse(error, "creating or updating");
+      //     });
+      // }
+    }, cancelForm() {
+      this.$router.push(`/home`);
     },
+    handleErrorResponse(error, verb) {
+      if (error.response) { //request reached the server and the server sent back a response
+        this.errorMsg =
+          "Error " + verb + " event. Response received was '" +
+          error.response.statusText +
+          "'.";
+      } else if (error.request) {
+        this.errorMsg =
+          "Error " + verb + " event. Server could not be reached.";
+      } else {
+        this.errorMsg =
+          "Error " + verb + " event. Request could not be created.";
+      }
+    }
   },
+
 };
 </script>
 

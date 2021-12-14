@@ -14,6 +14,7 @@ import java.security.Principal;
 //todo
 
 @PreAuthorize("isAuthenticated()")
+@CrossOrigin
 @RestController
 public class EventHostController {
 
