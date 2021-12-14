@@ -7,13 +7,17 @@ import com.techelevator.model.Event;
 import com.techelevator.model.Genre;
 import com.techelevator.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.security.Principal;
 
+
+@PreAuthorize("isAuthenticated()")
 @RestController
 @RequestMapping(path="/DJ")
+
 public class DjAccountController {
 
     private DjAccountDao djDao;
@@ -24,32 +28,26 @@ public class DjAccountController {
         this.userDao = userDao;
     }
 
-    //not working
+    //not working authorization
+    //todo
+    //front end make sure they put in amount of time
+    @PreAuthorize("hasRole('ROLE_DJ')")
     @RequestMapping (path = "/create/event", method = RequestMethod.POST)
     public Event createEvent(Principal principal, @Valid @RequestBody Event event) {
        User user = userDao.findByUsername(principal.getName());
         return djDao.createEvent(event, user);
     }
 
-    //working
-    @RequestMapping(path = "/create/genre", method = RequestMethod.POST)
-    public Genre createGenre(Principal principal, @Valid @RequestBody Genre genre) {
-        return djDao.createGenre(genre);
-    }
 
     //working
-    @RequestMapping(path="/delete/{genreId}",method = RequestMethod.DELETE)
-    public void deleteGenre(@PathVariable int genreId) throws Exception {
-        djDao.deleteGenre(genreId);
-    }
-
-    //working
+    @PreAuthorize("hasRole('ROLE_DJ')")
     @RequestMapping(path = "/add/song/{songId}", method = RequestMethod.PUT)
     public void addSongToGenre(@RequestBody Genre genre, @PathVariable int songId) throws Exception {
         djDao.addSongToGenre(songId, genre);
     }
 
     //working
+    @PreAuthorize("hasRole('ROLE_DJ')")
     @RequestMapping(path = "/remove/song/{songId}", method = RequestMethod.PUT)
     public void removeSongFromGenre(@RequestBody Genre genre, @PathVariable int songId) throws Exception {
         djDao.deleteSongFromGenre(songId, genre);

@@ -2,7 +2,9 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Event;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
+@Component
 public class JdbcEventHostDao implements HostDao {
     private JdbcTemplate jdbcTemplate;
     @Override

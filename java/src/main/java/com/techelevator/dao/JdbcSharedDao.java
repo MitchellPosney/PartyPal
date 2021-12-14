@@ -75,6 +75,7 @@ public class JdbcSharedDao implements SharedDao
 
 
 
+
     @Override
     public List<Song> getCurrentPlaylist(int playlistId) {
         List<Song> currentSongPlaylist = new ArrayList<>();
