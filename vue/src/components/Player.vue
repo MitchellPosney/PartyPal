@@ -8,17 +8,17 @@
 <script>
 export default {
     name: 'playlist',
-    methods: {
-        changePlayPauseImg() {
-            if(document.getElementById('playPauseImg').src='play.png') {
-                document.getElementById('playPauseImg').src='pause.png';
-            } else {
-                document.getElementById('playPauseImg').src='';
-            }
+    // methods: {
+    //     changePlayPauseImg() {
+    //         if(document.getElementById('playPauseImg').src='play.png') {
+    //             document.getElementById('playPauseImg').src='pause.png';
+    //         } else {
+    //             document.getElementById('playPauseImg').src='';
+    //         }
             
 
-        }
-    }
+    //     }
+    // }
     
 }
 </script>

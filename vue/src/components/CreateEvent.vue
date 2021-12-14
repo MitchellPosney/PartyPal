@@ -4,7 +4,7 @@
       {{ errorMsg }}
     </div>
     <div class="form-group">
-      <label for="title"> Event Name: </label>
+      <label for="title"> Event Name:  </label>
       <input
         id="title"
         type="text"
@@ -14,7 +14,7 @@
       />
     </div>
     <div class="form-group">
-      <label for="title"> Event Host: </label>
+      <label for="title"> Event Host:  </label>
       <input
         id="title"
         type="text"
@@ -25,7 +25,7 @@
     </div>
 
     <div class="form-group">
-      <label for="genre"> Genre: </label>
+      <label for="genre"> Genre:  </label>
       <select id="genre" class="form-control" v-model="event.genre">
         <option value="Graduation">Graduation</option>
         <option value="Summer">Summer Party</option>
@@ -37,7 +37,7 @@
 
     </div>
     <div class="form-group">
-      <label for="playlist"> Playlist Name: </label>
+      <label for="playlist"> Playlist Name:  </label>
       <input
         id="playlist"
         type="text"
@@ -47,7 +47,7 @@
       />
     </div>
     <div class="form-group">
-      <label for="date">Date of Event:</label>
+      <label for="date">Date of Event:  </label>
       <input
         type="date"
         id="date"
@@ -56,7 +56,6 @@
         min="2021-17-12"
         max="2022-17-12"
       />
-      <label for="date">Date:</label>
     </div>
     <div class="form-group">
       <label for="time">Choose a Start time for your Event:</label>
@@ -82,7 +81,9 @@
         v-model="event.location"
       ></textarea>
     </div>
-    <button class="btn btn-submit">Submit</button>
+    <br>
+    <br>
+    
     <button
       class="btn btn-cancel"
       v-on:click.prevent="cancelForm"
@@ -90,6 +91,8 @@
     >
       Cancel
     </button>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-submit">Submit</button>
   </form>
 </template>
 
@@ -174,5 +177,32 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.form-group {
+  padding: 3px;
+}
+
+.btn-submit{
+  background-color: #18CAE6;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+}
+.btn-submit:hover, .btn-submit:focus {
+  background-color: #61E294;
+}
+
+.btn-cancel{
+  background-color: #D741A7;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
 </style>

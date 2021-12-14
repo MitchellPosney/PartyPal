@@ -46,7 +46,8 @@ CREATE TABLE song (
         song_id SERIAL, 
         genre_id int, 
         song_title varchar(250) NOT NULL, 
-        song_artist varchar(250) NOT NULL, 
+        song_artist varchar(250) NOT NULL,
+        preview varchar,
         CONSTRAINT pk_song_id PRIMARY KEY (song_id),    
         CONSTRAINT fk_genre_id FOREIGN KEY (genre_id) REFERENCES genre(genre_id)     
 );
