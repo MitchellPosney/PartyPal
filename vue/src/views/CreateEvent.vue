@@ -1,6 +1,8 @@
 <template>
     <div>
-        <h1>WE'RE GONNA START A PARTY!!!</h1> 
+        <h1>Let's Start this Party!</h1>
+        <br>
+        <h5>Tell us about the party:</h5>
         <create-event/>
     </div>
 </template> 

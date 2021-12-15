@@ -33,7 +33,6 @@
         <option value="2">Birthday Party</option>
         <option value="1">Christmas</option>
         <option value="4">Wedding</option> 
-        
       </select>
 
 

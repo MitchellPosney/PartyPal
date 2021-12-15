@@ -30,7 +30,7 @@ public class JdbcSharedDao implements SharedDao
                 " event_name, event_date, start_time, duration_minutes, event_location " +
                 "FROM event " +
                 "WHERE event_name ILIKE ? ;" ;
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, eventName +"%");
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, "%"+eventName +"%");
         while (results.next()) {
             Event event = mapRowToEvent(results);
             eventList.add(event);
