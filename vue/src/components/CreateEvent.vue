@@ -4,9 +4,9 @@
       {{ errorMsg }}
     </div>
     <div class="form-group">
-      <label for="title"> Event Name:  </label>
+      <label for="name"> Event Name:  </label>
       <input
-        id="title"
+        id="name"
         type="text"
         class="form-control"
         v-model="event.name"
@@ -14,10 +14,10 @@
       />
     </div>
     <div class="form-group">
-      <label for="title"> Event Host:  </label>
+      <label for="host"> Event Host:  </label>
       <input
-        id="title"
-        type="text"
+        id="host"
+        type="number"
         class="form-control"
         v-model="event.host"
         autocomplete="off" 
@@ -28,11 +28,11 @@
     <div class="form-group">
       <label for="genre"> Genre:  </label>
       <select id="genre" class="form-control" v-model="event.genre" >
-        <option value="Graduation">Graduation</option>
-        <option value="Summer">Summer Party</option>
-        <option value="Birthday">Birthday Party</option>
-        <option value="Christmas">Christmas</option>
-        <option value="Wedding">Wedding</option> 
+        <option value="5">Graduation</option>
+        <option value="3">Summer Party</option>
+        <option value="2">Birthday Party</option>
+        <option value="1">Christmas</option>
+        <option value="4">Wedding</option> 
         
       </select>
 
@@ -116,7 +116,7 @@ export default {
     return {
       event: {
         name: "",
-        host: "",
+        host: 1,
         playlist: 1,
         genre: 2
         // date: "",
@@ -148,7 +148,8 @@ export default {
           .createEvent(newEvent)
           .then((response) => {
             if (response.status === 200) {
-              this.$router.push(`/event/${newEvent.eventId}/details`);
+              console.log(response.data)
+              this.$router.push(`/event/${response.data.eventId}/details`);
             }
           })
           .catch((error) => {

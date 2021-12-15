@@ -28,19 +28,11 @@ export default {
     },
     data(){
       return {
-        Events: [{    nameDJ: "DJ Daft Punk",
-                date: "12142021",
-                time: "00:00:00",
-                location:"New York City, NY"}, {    nameDJ: "DJ Khalid",
-                date: "12312021",
-                time: "23:00:00",
-                location:"Atlanta, GA"}, {    nameDJ: "DJ Kaytranada",
-                date: "10312022",
-                time: "21:00:00",
-                location:"Los Angeles, CA"}]
+        Events: [{"eventId":1,"eventHost":null,"eventDJ":null,"eventDJId":3,"host":2,"genre":2,"playlist":1,"name":"Birthday Boogie","date":null,"time":null,"duration":0,"location":null},{"eventId":2,"eventHost":null,"eventDJ":null,"eventDJId":3,"host":3,"genre":2,"playlist":1,"name":"Birthday Bumble","date":null,"time":null,"duration":0,"location":null},{"eventId":3,"eventHost":null,"eventDJ":null,"eventDJId":3,"host":3,"genre":2,"playlist":1,
+"name":"Birthday Bumble","date":null,"time":null,"duration":0,"location":null}
+]
       }
     }
-
 };
 </script>
 

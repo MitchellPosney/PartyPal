@@ -33,6 +33,7 @@ public class SharedController {
     @RequestMapping(path = "events/find", method = RequestMethod.GET)
     public List<Event> getEventByName(@RequestParam String name) throws EventNotFoundException {
         List<Event> event = sharedDao.getEventByName(name);
+        System.out.println(name);
         if (event.size() == 0 || event == null) {
             throw new EventNotFoundException();
         } else {

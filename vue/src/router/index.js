@@ -7,7 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index' 
 import CreateEvent from '../views/CreateEvent.vue'
 import EventPlaylist from '../views/EventPlaylist.vue'
-import EventDetails from '../views/EventDetails.vue' 
+import EventDetail from '../views/EventDetails.vue' 
 import Search from '../views/Search.vue'
 Vue.use(Router)
 
@@ -68,15 +68,9 @@ const router = new Router({
       component: EventPlaylist
     },
     {
-      path: '/event/:eventID/details',
-      name: 'EventDetails',
-      component: EventDetails
-    },  
-
-    {
-      path: '/event/:eventID/details',
-      name: 'EventDetails',
-      component: EventDetails
+      path: '/event/:eventId/details',
+      name: 'EventDetail',
+      component: EventDetail
     },  
 
     {
