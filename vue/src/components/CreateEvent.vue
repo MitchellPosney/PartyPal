@@ -28,11 +28,11 @@
     <div class="form-group">
       <label for="genre"> Genre:  </label>
       <select id="genre" class="form-control" v-model="event.genre" >
-        <option value="Graduation">Graduation</option>
-        <option value="Summer">Summer Party</option>
-        <option value="Birthday">Birthday Party</option>
-        <option value="Christmas">Christmas</option>
-        <option value="Wedding">Wedding</option> 
+        <option value="5">Graduation</option>
+        <option value="3">Summer Party</option>
+        <option value="2">Birthday Party</option>
+        <option value="1">Christmas</option>
+        <option value="4">Wedding</option> 
         
       </select>
 
