@@ -14,7 +14,8 @@
                 <router-link v-bind:to="{ name: 'home' }">Home</router-link>
                 <router-link v-bind:to="{ name: 'register' }" v-show="$store.state.token == ''" class="dropdown-contents">Register</router-link>
                 <router-link v-bind:to="{ name: 'logout' }" v-show="$store.state.token != ''" class="dropdown-contents">Logout</router-link>
-                <router-link v-bind:to="{ name: 'EventPlaylist' }" v-show="$store.state.token == ''" class="dropdown-contents">EventPlaylist</router-link>
+                <router-link v-bind:to="{ name: 'EventPlaylist', params:{id:1} }" v-show="$store.state.token == ''" class="dropdown-contents">EventPlaylist</router-link> 
+                <!--!todo-->
             </div>
     </div>
 </div>

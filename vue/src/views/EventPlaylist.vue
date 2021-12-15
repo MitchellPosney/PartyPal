@@ -1,7 +1,7 @@
 <template>
   <div class="EventPlaylist">
       <h1>Playlist</h1>
-     <event-playlist-comp/>
+    <event-playlist-comp/>
   </div>
 </template>
 
@@ -9,10 +9,12 @@
 import EventPlaylistComp from '@/components/EventPlaylistComp.vue'
 
 
+
 export default {
     name: 'EventPlaylist',
     components: {
         EventPlaylistComp
+        
 
     }
 };

@@ -11,15 +11,15 @@ getEventById(eventID) {
 },
 
 getAvailableSongs(eventID) { 
-  return axios.get(`/events/songs/${eventID}`);
+  return axios.get(`events/songs/${eventID}`);
 }, 
 
 getCurrentPlaylist(eventID) {  
   return axios.get(`/events/playlist/${eventID}`);
 },  
 
-addSongToPlaylist(songID, event) {
-  return axios.put(`/events/playlist/${songID}`, event);
+addSongToPlaylist(songID, eventID) {
+  return axios.put(`/events/playlist/song/${songID}/${eventID}`);
 }
   
 

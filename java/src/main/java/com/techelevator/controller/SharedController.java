@@ -85,9 +85,9 @@ public class SharedController {
 
     //working
     @PreAuthorize("permitAll")
-    @RequestMapping(path = "events/playlist/{songId}", method = RequestMethod.PUT)
-    public void addSongToPlaylist(@RequestBody Event event, @PathVariable int songId) throws Exception {
-
+    @RequestMapping(path = "events/playlist/song/{songId}/{eventId}", method = RequestMethod.PUT)
+    public void addSongToPlaylist(@PathVariable int eventId, @PathVariable int songId) throws Exception {
+        Event event = sharedDao.getEventByID(eventId);
         sharedDao.addSongToPlaylist(songId, event.getPlaylistID());
     }
 
