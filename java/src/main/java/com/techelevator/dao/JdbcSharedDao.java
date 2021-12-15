@@ -40,7 +40,8 @@ public class JdbcSharedDao implements SharedDao
     @Override
     public Event getEventByID(int eventId) {
         Event event = null;
-        String sql = "SELECT * " +
+        String sql = "SELECT event_id, event_host, event_dj, playlist_id, genre_id, " +
+                " event_name, event_date, start_time, duration_minutes, event_location "  +
                 "FROM event " +
                 "WHERE event_id = ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, eventId);

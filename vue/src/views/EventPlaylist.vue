@@ -1,17 +1,19 @@
 <template>
   <div class="EventPlaylist">
       <h1>Playlist</h1>
-      <EventPlaylist/>
+     <event-playlist-comp/>
   </div>
 </template>
 
 <script>
-import EventPlaylist from '@/components/EventPlaylist.vue'
+import EventPlaylistComp from '@/components/EventPlaylistComp.vue'
+
 
 export default {
-    name: 'EventPlaylist-view',
+    name: 'EventPlaylist',
     components: {
-        EventPlaylist
+        EventPlaylistComp
+
     }
 };
 </script>

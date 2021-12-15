@@ -39,13 +39,13 @@
 
     </div>
     <div class="form-group">
-      <label for="playlist"> Playlist Name:  </label>
+      <label for="playlist"> Playlist Name: </label>
       <input
         id="playlist"
         type="text"
         class="form-control"
         v-model="event.playlist"
-        autocomplete="off" 
+        autocomplete="off" required
         
       />
     </div>
@@ -149,7 +149,8 @@ export default {
           .then((response) => {
             if (response.status === 200) {
               console.log(response.data)
-              this.$router.push(`/event/playlist${response.data.playlistID}`);
+              this.$router.push(`/event/playlist/${response.data.eventId}`); 
+             
             }
           })
           .catch((error) => {
