@@ -15,8 +15,13 @@ public class Event {
     private int eventDJId;
     @JsonProperty("genre")
     private int genreId;
-//    private ArrayList<Song> playlist;
+
+
+
+    //    private ArrayList<Song> playlist;
     @JsonProperty("playlist")
+    private String nameOfPlaylist;
+//    @JsonProperty("playlist")
     private int playlistID;
     @JsonProperty("name")
     private String eventName;
@@ -109,7 +114,13 @@ public class Event {
 
     public void setEventDJId(int eventDJId) { this.eventDJId = eventDJId; }
 
+    public String getNameOfPlaylist() {
+        return nameOfPlaylist;
+    }
 
+    public void setNameOfPlaylist(String nameOfPlaylist) {
+        this.nameOfPlaylist = nameOfPlaylist;
+    }
 
     public void setEventName(String eventName) { this.eventName = eventName; }
 

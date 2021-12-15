@@ -10,7 +10,7 @@ import java.util.Date;
 
 public interface DjAccountDao {
 
-    Event createEvent(Event event, User user);
+    Event createEvent(Event event, User user, String playlistName);
 
     Event getEventByID(int eventId);
 

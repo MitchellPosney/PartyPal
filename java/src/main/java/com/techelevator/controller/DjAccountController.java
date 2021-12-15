@@ -36,7 +36,7 @@ public class DjAccountController {
     @RequestMapping (path = "/create/event", method = RequestMethod.POST)
     public Event createEvent(Principal principal, @Valid @RequestBody Event event) {
        User user = userDao.findByUsername(principal.getName());
-        return djDao.createEvent(event, user);
+        return djDao.createEvent(event, user, event.getNameOfPlaylist());
     }
 
 

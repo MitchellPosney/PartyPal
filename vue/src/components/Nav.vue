@@ -34,7 +34,7 @@ export default {
              document.getElementById("myDropdown").classList.toggle("show");
         },
         handleGetEvent(){
-            console.log(this.name)
+            // console.log(this.name)
             this.$router.push({ name: 'Search', query: { name: this.name }})
         },
 //         window:onclick = function(event) {

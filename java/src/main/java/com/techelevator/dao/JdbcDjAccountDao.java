@@ -75,6 +75,13 @@ public class JdbcDjAccountDao implements DjAccountDao {
         return genre;
     }
 
+    public int createPlaylist(String name) {
+        String sql = "INSERT INTO playlist(playlist_name) " +
+                "VALUES (?) RETURNING playlist_id;";
+       int newId = jdbcTemplate.queryForObject(sql, Integer.class, name);
+       return newId;
+    }
+
     @Override
     public Genre createGenre(Genre genre) {
         String sql = "INSERT INTO genre(genre_name) " +
@@ -100,10 +107,12 @@ public class JdbcDjAccountDao implements DjAccountDao {
 
 
     @Override
-    public Event createEvent(Event event, User user) {
+    public Event createEvent(Event event, User user, String playlistName) {
+      int playlistId =  createPlaylist(playlistName);
+
         String sql = "INSERT INTO event(event_host, event_dj, playlist_id, event_name, genre_id, event_date, start_time, duration_minutes, event_location) " +
                 "VALUES (?,?,?,?,?,?,?,?,?) RETURNING event_id;";
-        int newId = jdbcTemplate.queryForObject(sql, Integer.class, event.getEventHostID(), user.getId(), event.getPlaylistID(), event.getEventName(),
+        int newId = jdbcTemplate.queryForObject(sql, Integer.class, event.getEventHostID(), user.getId(), playlistId, event.getEventName(),
         event.getGenreId(), event.getEventDate(), event.getStartTime(), event.getEventMinutes(), event.getEventLocation());
 
         return getEventByID(newId);

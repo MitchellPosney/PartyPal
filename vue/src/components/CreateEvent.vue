@@ -39,7 +39,7 @@
 
     </div>
     <div class="form-group">
-      <label for="playlist"> Playlist ID:  </label>
+      <label for="playlist"> Playlist Name:  </label>
       <input
         id="playlist"
         type="text"
@@ -117,7 +117,7 @@ export default {
       event: {
         name: "",
         host: 1,
-        playlist: 1,
+        playlist: "",
         genre: 2
         // date: "",
         // time: "",
@@ -149,7 +149,7 @@ export default {
           .then((response) => {
             if (response.status === 200) {
               console.log(response.data)
-              this.$router.push(`/event/${response.data.eventId}/details`);
+              this.$router.push(`/event/playlist${response.data.playlistID}`);
             }
           })
           .catch((error) => {
