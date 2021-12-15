@@ -8,7 +8,8 @@ import store from '../store/index'
 import CreateEvent from '../views/CreateEvent.vue'
 import EventPlaylist from '../views/EventPlaylist.vue'
 import EventDetail from '../views/EventDetails.vue' 
-import Search from '../views/Search.vue'
+import Search from '../views/Search.vue' 
+import AboutUs from '../views/AboutUs.vue'
 Vue.use(Router)
 
 /**
@@ -39,6 +40,14 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
+    }, 
+    {
+      path: "/about",
+      name: "about",
+      component: AboutUs,
+      meta: {
+        requiresAuth: false
+      } 
     },
     {
       path: "/logout",

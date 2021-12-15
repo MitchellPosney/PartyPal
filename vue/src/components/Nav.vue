@@ -11,7 +11,8 @@
         <button v-on:click="myFunction()" class="dropbtn">Manage Account</button>
             <div id="myDropdown" class="dropdown-content">
                 <router-link v-bind:to="{ name: 'login' }" v-show="$store.state.token == ''" class="dropdown-contents">Login</router-link>
-                <router-link v-bind:to="{ name: 'home' }">Home</router-link>
+                <router-link v-bind:to="{ name: 'home' }">Home</router-link> 
+                 <router-link v-bind:to="{ name: 'about' }"> About Us </router-link>
                 <router-link v-bind:to="{ name: 'register' }" v-show="$store.state.token == ''" class="dropdown-contents">Register</router-link>
                 <router-link v-bind:to="{ name: 'logout' }" v-show="$store.state.token != ''" class="dropdown-contents">Logout</router-link>
                 <router-link v-bind:to="{ name: 'EventPlaylist', params:{id:1} }" v-show="$store.state.token == ''" class="dropdown-contents">EventPlaylist</router-link> 
