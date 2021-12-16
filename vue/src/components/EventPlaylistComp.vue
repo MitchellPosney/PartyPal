@@ -3,7 +3,7 @@
      <ul class="song">  
     <div class="available-songs" v-for="song in songs" v-bind:key="song.songId" >  
    
-        <li v-on:click="addSongToPlaylist(song) "> 
+        <li onClick="window.location.reload(true)" v-on:click="addSongToPlaylist(song);;"> 
             <h3 class="song-title" > {{song.songTitle }}</h3>
       <p class="song-artist">
         {{ song.songArtist }}
@@ -64,7 +64,6 @@ export default {
       // id: 0,
       // title: "",
       // artist: "",
-
       errorMsg: "",
     };
   },
@@ -102,9 +101,6 @@ export default {
     this.getAvailableSongs(); 
     this.getCurrentPlaylist(); 
     // this.addSongToPlaylist()
-  }, 
-  reload() { 
-       document.getElementById("playlist").innerHTML=this.getCurrentPlaylist();
   }
 };
 </script>
