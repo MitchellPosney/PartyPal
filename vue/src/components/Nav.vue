@@ -1,7 +1,7 @@
 <template>
 <div id="nav">
     <div>
-        <router-link v-bind:to="{ name: 'home' }"><img src="retroplay_logo_horizontal_transp.png" class="logo"></router-link>
+        <router-link v-bind:to="{ name: 'home' }"><img src="/retroplay_logo_horizontal_transp.png" class="logo"></router-link>
     </div>
     <div class="searchbararea">
         <input v-model="name" type="text" placeholder="Search for an event..." class="searchbar" name="eventsearch" size="35">
