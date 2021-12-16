@@ -1,9 +1,9 @@
 <template>
   <div class="home">
     <div class="partylinks">
-      <a href="#"><img src="findparty.png" v-on:click="cursorToSearch()" class="party"></a>
+      <a href="#"><img src="/findparty.png" v-on:click="cursorToSearch()" class="party"></a>
       <router-link v-if="$store.state.user.authorities && $store.state.user.authorities[0].name=='ROLE_DJ'" v-bind:to="{ name: 'CreateEvent' }">
-      <img src="startparty.png" class="party"></router-link>
+      <img src="/startparty.png" class="party"></router-link>
 
     </div>
       <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXaXB8fQg7xif?utm_source=generator&theme=0" 
