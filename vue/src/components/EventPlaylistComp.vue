@@ -1,37 +1,29 @@
 <template>
   <div class="list">  
-     <ul class="song">  
-    <div class="available-songs" v-for="song in songs" v-bind:key="song.songId" >  
-   
-        <li onClick="window.location.reload(true)" v-on:click="addSongToPlaylist(song);;"> 
-            <h3 class="song-title" > {{song.songTitle }}</h3>
-      <p class="song-artist">
-        {{ song.songArtist }}
-      </p>
+    <ul class="song">  
+      <div class="available-songs" v-for="song in songs" v-bind:key="song.songId" >  
+        <li>
+          <img src="addsong.png"  class="add-song-img" onClick="window.location.reload(true)" v-on:click="addSongToPlaylist(song);">
+          <h3 class="song-title"> {{song.songTitle }} </h3>
+          <p class="song-artist">
+            {{ song.songArtist }}
+          </p>
+          <div class="line"></div>
         </li>
-     
-    
-    </div>  
-     </ul>
-
-  <div class="current-playlist"> 
-  <ul class="playlist"> 
-    <div v-for="playlist in playlists" v-bind:key="playlist.songId" class="playlist"> 
-    <li id="playlistList"> 
-      <h3 class="song-title" > {{playlist.songTitle }}</h3>
-      <p class="song-artist">
-        {{ playlist.songArtist }}
-      </p> 
-      </li>
-    </div> 
+      </div>  
     </ul>
+
+    <div class="current-playlist"> 
+      <ul class="playlist"> 
+        <div v-for="playlist in playlists" v-bind:key="playlist.songId" class="playlist"> 
+          <li id="playlistList"> 
+            <h3 class="song-title" > {{playlist.songTitle }}</h3>
+            <p class="song-artist"> {{ playlist.songArtist }} </p> 
+          </li>
+        </div> 
+      </ul>
+    </div> 
   </div> 
-
-
-  </div> 
-
-  
-
   <!-- <table>
     <thead>
       <tr> -->
@@ -56,7 +48,6 @@
 import sharedService from "../services/SharedService";
 export default {
   name: "event-playlist-comp",
-
   data() {
     return {
       songs: [], 
@@ -84,12 +75,10 @@ export default {
         this.getCurrentPlaylist();   
         // this.playlists.push(song);
         // this.$forceUpdate(); 
-  
         }
       }); this.$forceUpdate();
     }, 
     getCurrentPlaylist() {  
-    
       sharedService.getCurrentPlaylist(this.$route.params.id).then((response) => {
           console.log(response);
           this.playlists = response.data; 
@@ -106,15 +95,25 @@ export default {
 </script>
 
 <style> 
- ul{height:200px; width:25%;}
- ul{overflow:hidden; overflow-y:scroll;} 
-
-
+ ul{
+   height:200px; 
+   width:600px;
+   overflow:hidden; 
+   overflow-y:scroll;} 
 
 .list {
   /* display: flex-; */
   flex-direction: row;
   justify-content: space-around;
   padding: 10px;
-} 
+}
+
+.line {
+  border-bottom: 1px solid white;
+}
+
+.add-song-img {
+  height: 30px;
+}
+
 </style>
