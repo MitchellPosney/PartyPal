@@ -3,7 +3,7 @@
     <ul class="song">  
       <div class="available-songs" v-for="song in songs" v-bind:key="song.songId" >  
         <li>
-          <img src="addsong.png"  class="add-song-img" onClick="window.location.reload(true)" v-on:click="addSongToPlaylist(song);">
+          <img src="/addsong.png"  class="add-song-img" onClick="window.location.reload(true)" v-on:click="addSongToPlaylist(song);">
           <h3 class="song-title"> {{song.songTitle }} </h3>
           <p class="song-artist">
             {{ song.songArtist }}
