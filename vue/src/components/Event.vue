@@ -1,5 +1,5 @@
 <template>
-   <div class= "event-details">  <router-link :to="{name: 'EventDetail', params:{eventId: event.eventId}}" >{{event.eventId}}</router-link> 
+   <div class= "event-details">  <router-link :to="{name: 'EventDetail', params:{eventId: event.eventId}}" >{{event.name}}</router-link> 
        </div> 
 </template>
 

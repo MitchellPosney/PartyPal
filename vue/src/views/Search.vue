@@ -16,9 +16,11 @@ export default {
     }
   },
     created(){
-        sharedService.getEvent(this.$route.query.name).then(res=>{
+        sharedService.getEvent(this.$route.query.name)
+        .then(res=>
+        {
             console.log(res.data)
-            this.Events=res.data
+            this.Events=res.data;
         })
 
     },
@@ -28,11 +30,12 @@ export default {
     },
     data(){
       return {
-        Events: [{"eventId":1,"eventHost":null,"eventDJ":null,"eventDJId":3,"host":2,"genre":2,"playlist":1,"name":"Birthday Boogie","date":null,"time":null,"duration":0,"location":null},{"eventId":2,"eventHost":null,"eventDJ":null,"eventDJId":3,"host":3,"genre":2,"playlist":1,"name":"Birthday Bumble","date":null,"time":null,"duration":0,"location":null},{"eventId":3,"eventHost":null,"eventDJ":null,"eventDJId":3,"host":3,"genre":2,"playlist":1,
-"name":"Birthday Bumble","date":null,"time":null,"duration":0,"location":null}
-]
-      }
-    }
+        Events: [],
+        errorMsg: ""
+      };
+    },
+
+
 };
 </script>
 
