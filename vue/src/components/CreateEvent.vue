@@ -1,8 +1,10 @@
 <template>
+  <div class="createparty">
   <form v-on:submit.prevent="submitForm" class="eventForm">
     <div class="status-message error" v-show="errorMsg !== ''">
       {{ errorMsg }}
     </div>
+
     <div class="form-group">
       <label for="name"> Event Name:  </label>
       <input
@@ -13,6 +15,7 @@
         autocomplete="off" required
       />
     </div>
+
     <div class="form-group">
       <label for="host"> Event Host:  </label>
       <input
@@ -47,6 +50,8 @@
         autocomplete="off" required
         
       />
+      <br>
+      <br>
     </div>
     <!-- <div class="form-group">
       <label for="date">Date of Event:  </label>
@@ -97,6 +102,7 @@
     &nbsp;&nbsp;&nbsp;&nbsp;
     <button class="btn btn-submit">Submit</button>
   </form>
+  </div>
 </template>
 
 <script>
@@ -201,7 +207,7 @@ export default {
 
 <style scoped>
 .form-group {
-  padding: 3px;
+  padding: 8px;
 }
 
 .btn-submit{
@@ -226,5 +232,9 @@ export default {
   cursor: pointer;
   border-radius: 15px;
 }
+
+/* .createparty {
+  padding-left: 100px;
+} */
 
 </style>

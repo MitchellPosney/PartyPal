@@ -1,6 +1,8 @@
 <template>
-  <div class="search-results"> Search Results Page <event v-for="event in Events" v-bind:key="event.nameDJ" :event="event"></event>
-    </div>
+  <div class="search-results">
+     <h1>Search Results:</h1> 
+     <event v-for="event in Events" v-bind:key="event.nameDJ" :event="event"></event>
+  </div>
 </template>
 
 <script>
@@ -40,6 +42,9 @@ export default {
 </script>
 
 <style>
+.search-results {
+  text-align: center;
+}
 
 
 </style>

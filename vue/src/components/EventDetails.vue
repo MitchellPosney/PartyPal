@@ -1,5 +1,17 @@
 <template>
-  <div class="event-details">Event Details  EventName:{{events.name}}  DATE:{{events.date}}   Location:{{events.location}} </div>
+  <div class="event-details">
+    Event Details
+    <br>
+    <p class="titles">Event:</p>
+    {{events.name}}  
+    <br>
+    <p class="titles">Event Host:</p>
+    {{events.host}}
+    <br>
+    <!-- Date:  {{events.date}}   
+    <br>
+    Location:{{events.location}}  -->
+  </div>
 </template>
 
 <script>
@@ -18,11 +30,8 @@ export default {
             console.log(res.data)
             this.events=res.data
         })
-
     },
-    components:{
-        
-    
+    components:{   
     },
     data(){
       return {
@@ -34,4 +43,14 @@ export default {
 </script>
 
 <style>
+.event-details {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.titles {
+  text-decoration: underline;
+  font-size: 20px;
+}
+
 </style>
