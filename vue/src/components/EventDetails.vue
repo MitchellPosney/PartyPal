@@ -1,5 +1,5 @@
 <template>
-  <div class="event-details">Event Details {{events.name}}</div>
+  <div class="event-details">Event Details  EventName:{{events.name}}  DATE:{{events.date}}   Location:{{events.location}} </div>
 </template>
 
 <script>
@@ -26,12 +26,9 @@ export default {
     },
     data(){
       return {
-        events: {
-eventId:1, 
-eventDJId:3,host:2,genre:2,playlist:1,name:"Birthday Boogie",
-duration:0,},
-
-    }
+        events: [],
+        errorMsg: ""
+      } 
     }
 };
 </script>
