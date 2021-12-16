@@ -6,6 +6,8 @@
       <div class="songs" v-for="song in songs" v-bind:key="song.songId" >
         <h3>
           <img src="/addsong.png"  class="add-song-img" onClick="window.location.reload(true)" v-on:click="addSongToPlaylist(song);">
+          
+          <img src="/play.png" id="playpause" class="playpause" onClick="changePlayPauseImg()" v-on:click="changePlayPauseImg">
           {{song.songTitle }} 
         </h3>
         <p class="song-artist">
@@ -84,13 +86,29 @@ export default {
           this.playlists = response.data; 
         })
         .catch((error) => console.log(error));
+    },
+    changePlayPauseImg() {
+     var image = document.getElementById('playpause');
+      if(image.src.match('/play.png')) {      
+          document.getElementById('playpause').src='/pause.png';    
+        } else {
+          document.getElementById('playpause').src='/play.png';
+        }
     }
   },
   created() { 
     this.getAvailableSongs(); 
     this.getCurrentPlaylist(); 
     // this.addSongToPlaylist()
-  }
+  },
+  changePlayPauseImg() {
+    var image = document.getElementById('playpause');
+      if(image.src.match('/play.png')) {      
+          document.getElementById('playpause').src='/pause.png';    
+        } else {
+          document.getElementById('playpauseimg').src='/play.png';
+        }
+    }
 };
 </script>
 <style> 
@@ -113,9 +131,16 @@ export default {
 }
 
 .add-song-img {
-  height: 20px;
+  height: 25px;
   cursor: pointer;
   padding-right: 5px;
+}
+
+.playpause {
+  height: 25px;
+  cursor: pointer;
+  padding-left: 5px;
+  padding-right: 10px;
 }
 
 .song-artist {
