@@ -28,10 +28,10 @@
         <h2>Sade Akinkuotu</h2>
         <h3>&#40; Like the singer &#41;</h3>
         <p class="title"> Java BootCamp Graduate </p>
-        <p class="summary">"I am grateful to have had the chance to upskill 
-          with Tech Elevator and apply new knowledge to a capstone project that 
-          marries creativity and my interest in music with the development of streaming 
-          platforms software!"</p>
+        <p class="summary">"Wanting to embody the change that's needed in this world, I am grateful for the space to upskill 
+          with Tech Elevator and apply new knowledge to a capstone that 
+          marries creativity and my passion in music with the development of streaming 
+          platform software!"</p>
         <p>sadeakin85@gmail.com</p>
        <a href="https://www.linkedin.com/in/ade-s-akinkuotu" target="new">
        <button class="contact-btn">Contact</button>
