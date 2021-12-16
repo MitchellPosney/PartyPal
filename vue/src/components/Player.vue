@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Playlist</h1>
-        <img src="play.png" id="playpauseimg">
+        <img src="/play.png" id="playpauseimg">
 
     </div>
 </template>
