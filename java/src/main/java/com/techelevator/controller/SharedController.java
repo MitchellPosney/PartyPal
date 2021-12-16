@@ -6,6 +6,7 @@ import com.techelevator.dao.UserDao;
 import com.techelevator.model.Event;
 import com.techelevator.model.Playlist;
 import com.techelevator.model.Song;
+import com.techelevator.model.User;
 import com.techelevator.security.EventNotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -89,6 +90,13 @@ public class SharedController {
     public void addSongToPlaylist(@PathVariable int eventId, @PathVariable int songId) throws Exception {
         Event event = sharedDao.getEventByID(eventId);
         sharedDao.addSongToPlaylist(songId, event.getPlaylistID());
+    }
+
+    @PreAuthorize("permitAll")
+    @RequestMapping(path = "events/userName/{userIdNumber}", method = RequestMethod.GET)
+    public String getUserName(@PathVariable Long userIdNumber) throws Exception
+    {
+        return userDao.getUserById(userIdNumber).getUsername();
     }
 
 
