@@ -1,6 +1,5 @@
 <template>
   <div class="EventPlaylist">
-      <h1>Playlist</h1>
     <event-playlist-comp/>
   </div>
 </template>
