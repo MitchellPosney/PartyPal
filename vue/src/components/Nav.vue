@@ -1,7 +1,7 @@
 <template>
 <div id="nav">
     <div>
-        <router-link v-bind:to="{ name: 'home' }"><img src="retroplay_logo_horizontal_transp.png" class="logo"></router-link>
+        <router-link v-bind:to="{ name: 'home' }"><img src="/retroplay_logo_horizontal_transp.png" class="logo"></router-link>
     </div>
     <div class="searchbararea">
         <input v-model="name" type="text" placeholder="Search for an event..." class="searchbar" name="eventsearch" size="35">
@@ -11,11 +11,11 @@
         <button v-on:click="myFunction()" class="dropbtn">Manage Account</button>
             <div id="myDropdown" class="dropdown-content">
                 <router-link v-bind:to="{ name: 'login' }" v-show="$store.state.token == ''" class="dropdown-contents">Login</router-link>
-                <router-link v-bind:to="{ name: 'home' }">Home</router-link> 
-                 <router-link v-bind:to="{ name: 'about' }"> About Us </router-link>
+                <router-link v-if="$store.state.user.authorities && $store.state.user.authorities[0].name=='ROLE_DJ'" v-bind:to="{ name: 'CreateEvent' }">Create Event</router-link>
                 <router-link v-bind:to="{ name: 'register' }" v-show="$store.state.token == ''" class="dropdown-contents">Register</router-link>
                 <router-link v-bind:to="{ name: 'logout' }" v-show="$store.state.token != ''" class="dropdown-contents">Logout</router-link>
-                <router-link v-bind:to="{ name: 'EventPlaylist', params:{id:1} }" v-show="$store.state.token == ''" class="dropdown-contents">EventPlaylist</router-link> 
+                <router-link v-bind:to="{ name: 'about' }"> About Us </router-link>
+ 
                 <!--!todo-->
             </div>
     </div>

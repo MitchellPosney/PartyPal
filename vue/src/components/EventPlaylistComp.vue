@@ -1,28 +1,28 @@
 <template>
-  <div class="list">  
-    <ul class="song">  
-      <div class="available-songs" v-for="song in songs" v-bind:key="song.songId" >  
-        <li>
-          <img src="addsong.png"  class="add-song-img" onClick="window.location.reload(true)" v-on:click="addSongToPlaylist(song);">
-          <h3 class="song-title"> {{song.songTitle }} </h3>
-          <p class="song-artist">
-            {{ song.songArtist }}
-          </p>
-          <div class="line"></div>
-        </li>
-      </div>  
-    </ul>
-
-    <div class="current-playlist"> 
-      <ul class="playlist"> 
-        <div v-for="playlist in playlists" v-bind:key="playlist.songId" class="playlist"> 
-          <li id="playlistList"> 
+<div>
+  <div class="event-playlists">
+    <div class="playlist">
+     <div><h1>Available Songs:</h1></div>
+      <div class="songs" v-for="song in songs" v-bind:key="song.songId" >
+        <h3>
+          <img src="/addsong.png"  class="add-song-img" onClick="window.location.reload(true)" v-on:click="addSongToPlaylist(song);">
+          {{song.songTitle }} 
+        </h3>
+        <p class="song-artist">
+          {{ song.songArtist }}
+        </p>
+        <div class="border"></div> 
+      </div>
+    </div>
+    
+    <div class="playlist">
+      <div><h1>Songs Added to Playlist:</h1></div>
+        <div v-for="playlist in playlists" v-bind:key="playlist.songId" id="playlistList" class="songs"> 
             <h3 class="song-title" > {{playlist.songTitle }}</h3>
             <p class="song-artist"> {{ playlist.songArtist }} </p> 
-          </li>
-        </div> 
-      </ul>
-    </div> 
+        </div>
+    </div>
+
   </div> 
   <!-- <table>
     <thead>
@@ -42,8 +42,8 @@
       </tr>
     </tbody> -->
   <!-- </table> -->
+</div>
 </template>
-
 <script>
 import sharedService from "../services/SharedService";
 export default {
@@ -93,27 +93,38 @@ export default {
   }
 };
 </script>
-
 <style> 
- ul{
-   height:200px; 
-   width:600px;
-   overflow:hidden; 
-   overflow-y:scroll;} 
 
-.list {
-  /* display: flex-; */
+.event-playlists {
+  display: flex; 
   flex-direction: row;
   justify-content: space-around;
   padding: 10px;
+  scrollbar-color: #D741A7;
 }
 
-.line {
-  border-bottom: 1px solid white;
+.playlist {
+  height: 550px; 
+  width:40%;
+  overflow:hidden; 
+  overflow-y: auto;
+  scrollbar-color: #D741A7 black;
+  scrollbar-width: thin;
 }
 
 .add-song-img {
-  height: 30px;
+  height: 20px;
+  cursor: pointer;
+  padding-right: 5px;
+}
+
+.song-artist {
+  font-style: italic;
+  vertical-align: middle;
+}
+
+.songs {
+  padding-bottom: 5px;
 }
 
 </style>
