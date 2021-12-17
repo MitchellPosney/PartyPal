@@ -1,12 +1,14 @@
 <template>
   <div class="about-section">
+  <h1 style="text-align:center">Meet Team DJ</h1>
+
   <p class="about-summary">For the past 14-weeks we have been learning how 
      to develop dynamic web-based software systems using the Java programming language.
      We hope you've enjoyed our final capstone project utilizing our new-found Java, SQL, Vue.js, 
      SpringBoot, Axios, and HTML/CSS.
   </p>
 
-<h2 style="text-align:center">Meet Team DJ</h2>
+
 <div class="row">
   
   <div class="column">
@@ -82,7 +84,7 @@ export default {
   color: white;
   padding: 10px;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: bolder;
   border: none;
   cursor: pointer;
   border-radius: 15px;
@@ -115,6 +117,7 @@ export default {
 .about-summary {
   text-align: center;
   padding: 10px 75px;
+  font-weight: bold;
 }
 
 .pic {
@@ -124,4 +127,11 @@ export default {
   border-width: 3px;
   border-style: solid
 }
+
+h1 {
+  text-shadow: 2px 2px green;
+  color: #D741A7;
+  background-color: coral;
+}
+
 </style>
