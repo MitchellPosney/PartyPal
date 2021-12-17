@@ -7,14 +7,12 @@
       <br>
       <div class="titles">Event Host:</div>
       <div>{{events.host}}</div>
-      <br>
-      <div class="titles">Playlist:</div>
-      <div>{{events.playlist}}</div>
     </div>
 
     <div>
-      <img src="/vote.png" class="vote-on-songs">
-
+      <router-link :to="{ name: 'EventPlaylist', params: { id: $route.params.eventId } }" >
+      <img src="/addsongs.png" class="party"> 
+      </router-link>
     </div>
 
     <!-- Date:  {{events.date}}   
