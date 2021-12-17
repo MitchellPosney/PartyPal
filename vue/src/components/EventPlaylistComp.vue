@@ -2,7 +2,7 @@
 <div>
   <div class="event-playlists">
     <div class="playlist">
-     <div><h1>Available Songs:</h1></div>
+     <div><h1 class="playlisttitle">Available Songs:</h1></div>
       <div class="songs" v-for="song in songs" v-bind:key="song.songId" >
         <h3>
           <img src="/addsong.png"  class="add-song-img" onClick="window.location.reload(true)" v-on:click="addSongToPlaylist(song);">
@@ -18,7 +18,7 @@
     </div>
     
     <div class="playlist">
-      <div><h1>Songs Added to Playlist:</h1></div>
+      <div><h1 class="playlisttitle">Songs Added to Playlist:</h1></div>
         <div v-for="playlist in playlists" v-bind:key="playlist.songId" id="playlistList" class="songs"> 
             <h3 class="song-title" > {{playlist.songTitle }}</h3>
             <p class="song-artist"> {{ playlist.songArtist }} </p> 
@@ -100,15 +100,7 @@ export default {
     this.getAvailableSongs(); 
     this.getCurrentPlaylist(); 
     // this.addSongToPlaylist()
-  },
-  changePlayPauseImg() {
-    var image = document.getElementById('playpause');
-      if(image.src.match('/play.png')) {      
-          document.getElementById('playpause').src='/pause.png';    
-        } else {
-          document.getElementById('playpauseimg').src='/play.png';
-        }
-    }
+  }
 };
 </script>
 <style> 
@@ -152,4 +144,7 @@ export default {
   padding-bottom: 5px;
 }
 
+.playlisttitle {
+  color:  #D741A7;
+}
 </style>

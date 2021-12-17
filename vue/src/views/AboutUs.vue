@@ -11,7 +11,7 @@
   
   <div class="column">
     <div class="card">
-      <img src="pause.png" alt="Caroline" class="pic">
+      <img src="caroline.jpg" alt="Caroline" class="pic">
         <h2>Caroline Lundy </h2>
         <p class="title"> Java BootCamp Graduate </p>
         <p class="summary">"My Coding Super Power is that I have a knack for Seeing Future Potential errors while writing Code!"</p>
@@ -98,8 +98,8 @@ export default {
 }
 
 .column {
-  padding-right: 40px;
-  padding-left: 40px;
+  padding-right: 240px;
+  padding-left: 240px;
 }
 
 .title {
