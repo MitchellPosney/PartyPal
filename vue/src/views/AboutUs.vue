@@ -1,12 +1,14 @@
 <template>
   <div class="about-section">
+  <h1 style="text-align:center">Meet Team DJ</h1>
+
   <p class="about-summary">For the past 14-weeks we have been learning how 
      to develop dynamic web-based software systems using the Java programming language.
      We hope you've enjoyed our final capstone project utilizing our new-found Java, SQL, Vue.js, 
      SpringBoot, Axios, and HTML/CSS.
   </p>
 
-<h2 style="text-align:center">Meet Team DJ</h2>
+
 <div class="row">
   
   <div class="column">
@@ -28,10 +30,10 @@
         <h2>Sade Akinkuotu</h2>
         <h3>&#40; Like the singer &#41;</h3>
         <p class="title"> Java BootCamp Graduate </p>
-        <p class="summary">"I am grateful to have had the chance to upskill 
-          with Tech Elevator and apply new knowledge to a capstone project that 
-          marries creativity and my interest in music with the development of streaming 
-          platforms software!"</p>
+        <p class="summary">"Wanting to embody the change that's needed in this world, I am grateful for the space to upskill 
+          with Tech Elevator and apply new knowledge to a capstone that 
+          marries creativity and my passion in music with the development of streaming 
+          platform software!"</p>
         <p>sadeakin85@gmail.com</p>
        <a href="https://www.linkedin.com/in/ade-s-akinkuotu" target="new">
        <button class="contact-btn">Contact</button>
@@ -82,7 +84,7 @@ export default {
   color: white;
   padding: 10px;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: bolder;
   border: none;
   cursor: pointer;
   border-radius: 15px;
@@ -115,6 +117,7 @@ export default {
 .about-summary {
   text-align: center;
   padding: 10px 75px;
+  font-weight: bold;
 }
 
 .pic {
@@ -124,4 +127,11 @@ export default {
   border-width: 3px;
   border-style: solid
 }
+
+h1 {
+  text-shadow: 2px 2px green;
+  color: #D741A7;
+  background-color: coral;
+}
+
 </style>
