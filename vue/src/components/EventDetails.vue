@@ -1,13 +1,22 @@
 <template>
   <div class="event-details">
-    Event Details
-    <br>
-    <p class="titles">Event:</p>
-    {{events.name}}  
-    <br>
-    <p class="titles">Event Host:</p>
-    {{events.host}}
-    <br>
+    <div class="detail-text">
+      <h1>Event Details</h1>
+      <div class="titles">Event:</div>
+      <div>{{events.name}}</div>  
+      <br>
+      <div class="titles">Event Host:</div>
+      <div>{{events.host}}</div>
+      <br>
+      <div class="titles">Playlist:</div>
+      <div>{{events.playlist}}</div>
+    </div>
+
+    <div>
+      <img src="/vote.png" class="vote-on-songs">
+
+    </div>
+
     <!-- Date:  {{events.date}}   
     <br>
     Location:{{events.location}}  -->
@@ -44,13 +53,26 @@ export default {
 
 <style>
 .event-details {
+  display: flex;
   text-align: center;
   padding-top: 20px;
+  flex-direction: row;
+  width: 100%;
+  align-content: center;
+  justify-content: center;
 }
 
 .titles {
   text-decoration: underline;
   font-size: 20px;
+}
+
+.vote-on-songs {
+  height: 250px;
+}
+
+.detail-text {
+  padding: 15px;
 }
 
 </style>
