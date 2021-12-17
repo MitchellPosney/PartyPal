@@ -4,7 +4,7 @@
         <router-link v-bind:to="{ name: 'home' }"><img src="/retroplay_logo_horizontal_transp.png" class="logo"></router-link>
     </div>
     <div class="searchbararea">
-        <input v-model="name" type="text" placeholder="Search for an event..." class="searchbar" name="eventsearch" size="35">
+        <input v-model="name" type="text" placeholder="Search for an event..." class="searchbar" name="eventsearch" id="eventsearch" size="35">
         <button v-on:click="handleGetEvent"><i class="fa fa-search"></i></button>
     </div>
     <div class="dropdown">
@@ -39,18 +39,18 @@ export default {
             // console.log(this.name)
             this.$router.push({ name: 'Search', query: { name: this.name }})
         },
-//         window:onclick = function(event) {
-//              if (!event.target.matches('.dropbtn')) {
-//                 var dropdowns = document.getElementsByClassName("dropdown-contents");
-//                 var i;
-//                 for (i = 0; i < dropdowns.length; i++) {
-//                 var openDropdown = dropdowns[i];
-//                 if (openDropdown.classList.contains('show')) {
-//                     openDropdown.classList.remove('show');
-//       }
-//     }
-//   }
-// }
+        window:onclick = function(event) {
+             if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-contents");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
 
     },
 

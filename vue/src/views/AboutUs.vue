@@ -1,11 +1,11 @@
 <template>
   <div class="about-section">
-  <h1 style="text-align:center">Meet Team DJ</h1>
+  <h1 style="text-align:center" class="meet-team-dj">Meet Team DJ</h1>
 
   <p class="about-summary">For the past 14-weeks we have been learning how 
      to develop dynamic web-based software systems using the Java programming language.
-     We hope you've enjoyed our final capstone project utilizing our new-found Java, SQL, Vue.js, 
-     SpringBoot, Axios, and HTML/CSS.
+     We hope you've enjoyed our final capstone project utilizing our new-found Java, PostgreSQL, Vue.js, 
+     Spring, and HTML/CSS.
   </p>
 
 
@@ -62,7 +62,7 @@
         <p class="title"> Java BootCamp Graduate </p>
         <p class="summary">"Ashley is a lifelong skill collector who is currently enthusiastic 
           about putting her English and Philosophy degrees to work hunting vagrant punctuation 
-          marks in code and reasoning her way out of a FizzBuzz in as many different ways as she can find." </p>
+          marks in code and reasoning her way out of a FizzBuzz in as many different ways as possible." </p>
         <p>ashley.e.shewmaker@gmail.com</p>
        <a href="https://www.linkedin.com/in/ashley-shewmaker" target="new">
        <button class="contact-btn">Contact</button>
@@ -116,8 +116,9 @@ export default {
 
 .about-summary {
   text-align: center;
-  padding: 10px 75px;
+  padding: 10px 100px;
   font-weight: bold;
+  font-size: 20px;
 }
 
 .pic {
@@ -128,10 +129,9 @@ export default {
   border-style: solid
 }
 
-h1 {
-  text-shadow: 2px 2px green;
+.meet-team-dj {
+  text-shadow: 1px 1px #F2CD5D;
   color: #D741A7;
-  background-color: coral;
 }
 
 </style>

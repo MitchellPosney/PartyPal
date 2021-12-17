@@ -2,17 +2,19 @@
    <div class= "event-details">  
        <div class="search-results">
         <router-link :to="{name: 'EventDetail', params:{eventId: event.eventId}}" >
-           <button class="btn-event">{{event.name}} hosted by {{event.host}}</button>
+           <button class="btn-event">{{event.name}}</button>
         </router-link> 
        </div>
     </div> 
 </template>
 
 <script>
+
 export default {
     data(){
         return {
-            
+            events: [],
+            errorMsg: ""        
         }
     }, props: {
         event: Object

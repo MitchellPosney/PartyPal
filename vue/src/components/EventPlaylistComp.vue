@@ -7,7 +7,7 @@
         <h3>
           <img src="/addsong.png"  class="add-song-img" onClick="window.location.reload(true)" v-on:click="addSongToPlaylist(song);">
           
-          <img src="/play.png" id="playpause" class="playpause" onClick="changePlayPauseImg()" v-on:click="changePlayPauseImg">
+          <!-- <img src="/play.png" id="playpause" class="playpause" onClick="changePlayPauseImg()" v-on:click="changePlayPauseImg"> -->
           {{song.songTitle }} 
         </h3>
         <p class="song-artist">

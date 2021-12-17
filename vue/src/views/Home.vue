@@ -18,8 +18,7 @@ export default {
   name: "home",
   methods: {
     cursorToSearch () {
-      document.querySelector("searchbar").focus();
-      document.querySelector("searchbar").setSelectionRange(0,0);
+      document.getElementById("eventsearch").focus();
     }
   }
 };
